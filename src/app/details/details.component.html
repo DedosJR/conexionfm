@@ -1,0 +1,67 @@
+<header>
+  <div class="logo" align="center">
+    <a href=""><img src="assets/ConexionFM-logo.png" alt="Logo" /></a>
+  </div>
+</header>
+<!-- Toolbar de pagina web -->
+<mat-toolbar id="header">
+  <button mat-icon-button (click)="openSidenav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <!-- <div class="nav">
+    <ul>
+      <li><a routerLink="/">Inicio</a></li>
+      <li><a routerLink="/about">Quiénes somos</a></li>
+      <li><a routerLink="/contact">Contacto</a></li>
+      <li><a routerLink="/shedule">Programación</a></li>
+    </ul>
+  </div> -->
+</mat-toolbar>
+<!-- Sidenav -->
+<mat-sidenav id="sidenav" [opened]="sidenavOpen" (close)="closeSidenav()">
+  <div class="logo-side">
+    <a href="/"
+      ><img src="assets/ConexionFM-logo.png" alt="Logo" class="logo-side"
+    /></a>
+  </div>
+  <button mat-icon-button (click)="closeSidenav()" class="close" name="Cerrar">
+    <mat-icon>close</mat-icon>
+  </button>
+  <mat-sidenav-container class="container">
+    <ul>
+      <li><a routerLink="/">Inicio</a></li>
+      <li><a routerLink="/about">Quiénes somos</a></li>
+      <li><a routerLink="/contact">Contacto</a></li>
+      <li><a routerLink="/shedule">Programación</a></li>
+    </ul>
+  </mat-sidenav-container>
+</mat-sidenav>
+
+<div>
+  <section>
+    <article>
+      <div class="articulo">
+        @if(post){
+        <h1>{{ post.title.rendered }}</h1>
+        <img [src]="post.featured_image" alt="Imagen del post" />
+        <div [innerHTML]="post.content.rendered"></div>
+        }
+      </div>
+      <br />
+    </article>
+    <aside class="aside">
+      <div clas="row">
+        <div align="center">
+          <a href="URL" target="_blank">
+            <img
+              src="https://estiloinformativo.com/wp-content/uploads/2023/11/APP-Identidad-digital-scaled.jpg"
+              alt="GobE"
+              width="400"
+              height="400"
+            />
+          </a>
+        </div>
+      </div>
+    </aside>
+  </section>
+</div>

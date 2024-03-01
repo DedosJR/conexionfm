@@ -1,0 +1,74 @@
+:root {
+  /* color-scheme: light dark; */
+  --color-white: #ffffff;
+  --color-gray-dark: #333;
+  --color-gray: #c6c6c6;
+  --color-dark: #212121;
+  --color-orange: #e69c11;
+  --color-black: #000000;
+}
+
+/*
+Estilos generales de pagina
+*/
+
+#destacado {
+  width: 100%;
+  height: 830px;
+}
+#destacado img {
+  height: 700px;
+}
+
+mat-card {
+  width: 452px; /* Ancho fijo para la tarjeta */
+  height: 450px; /* Altura fija para la tarjeta */
+  border-radius: 10px;
+  background-color: var(--color-white);
+  border-width: 0;
+  border-style: solid;
+  border-color: #888;
+  box-shadow: 0px 0px 10px #e6ebf1;
+  font-size: 14pt;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 10px;
+  overflow: hidden;
+  display: inline-block;
+}
+mat-card img {
+  width: 100%; /* Ancho de imagen al 100% */
+  height: 300px; /* Altura fija para la imagen */
+  object-fit: cover;
+}
+
+/* Estilos personalizados para mat-card-title */
+mat-card-title {
+  text-transform: uppercase;
+  font-variant: small-caps;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Elimina la línea de enlace y el efecto de hover en naranja */
+mat-card-title a {
+  text-decoration: none;
+  color: inherit;
+}
+
+mat-card-title a:hover {
+  color: var(--color-orange);
+  transition: width 3s;
+  text-decoration: underline;
+}
+
+mat-grid-tile {
+  background: lightblue;
+}
+mat-grid-tile img {
+  width: 400px;
+  height: 300px;
+}
