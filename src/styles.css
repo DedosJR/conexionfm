@@ -68,7 +68,7 @@ body {
   padding: 0 auto;
   margin: 0 auto;
   width: 450px;
-  height: 80px;
+  height: 120px;
 }
 .logo-footer div {
   margin: 0 auto;
@@ -83,7 +83,7 @@ body {
 }
 header {
   width: 100%;
-  max-height: auto;
+  max-height: 200px;
   background-color: var(--color-white);
   position: fixed;
   top: 0;
@@ -92,7 +92,7 @@ header {
   animation-duration: 3s;
 }
 .hide-header {
-  top: -80px; /* La altura del encabezado */
+  top: -120px; /* La altura del encabezado */
 }
 .header {
   top: -200px;
@@ -100,7 +100,7 @@ header {
 #header {
   background-color: var(--color-black);
   position: fixed;
-  margin-top: 78px;
+  margin-top: 115px;
   z-index: 1000;
   transition: top 2.3s;
   animation-duration: 5s;
@@ -181,11 +181,6 @@ svg {
   flex: 30%;
   margin: 10px auto;
   padding: 10px;
-}
-.direccion {
-  font-size: 18pt;
-  text-align: center;
-  line-height: 1.5;
 }
 
 /* Nave menu */
