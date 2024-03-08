@@ -10,7 +10,7 @@
   </button>
   <div class="nav-menu">
     <ul id="menu">
-      <li><a routerLink="/">Inicio</a></li>
+      <li><a routerLink=" ">Inicio</a></li>
       <li><a routerLink="/about">Quiénes somos</a></li>
       <li><a routerLink="/shedule">Programación</a></li>
       <li><a routerLink="/contact">Contacto</a></li>
@@ -41,19 +41,65 @@
 </mat-sidenav>
 <!-- Inicio de pagina web -->
 <section>
-  <!-- Mat card Destacado -->
-  @for(destaca of destacado; track destaca.id){
-  <mat-card id="destacado">
-    <a routerLink="/details/{{ destaca.id }}/{{ destaca.slug }}"
-      ><img mat-card-image [src]="destaca.featured_image"
-    /></a>
-    <mat-card-title>
-      <a routerLink="/details/{{ destaca.id }}/{{ destaca.slug }}"
-        ><h1>{{ destaca.title.rendered }}</h1></a
-      >
-    </mat-card-title> </mat-card
-  ><br /><br />
-  }
+  <div class="grid">
+    <!-- Card destacado cuadros -->
+    <div class="post-card">
+      @for (destaca of destacado; track destaca.id) {
+      <!-- card 1 destacado -->
+      <div>
+        <mat-card class="card-mini">
+          <a routerLink="/details/{{ destaca.id }}/{{ destaca.slug }}"
+            ><img mat-card-image [src]="destaca.featured_image"
+          /></a>
+          <mat-card-title>
+            <a routerLink="/details/{{ destaca.id }}/{{ destaca.slug }}"
+              ><h1 class="card-mini-t">{{ destaca.title.rendered }}</h1></a
+            >
+          </mat-card-title>
+        </mat-card>
+      </div>
+      }
+    </div>
+    <!-- Mat card Destacado -->
+    @for(destaca of destacado; track destaca.id){
+    <div>
+      <mat-card id="destacado">
+        <a routerLink="/details/{{ destaca.id }}/{{ destaca.slug }}"
+          ><img mat-card-image [src]="destaca.featured_image"
+        /></a>
+        <mat-card-title>
+          <a routerLink="/details/{{ destaca.id }}/{{ destaca.slug }}"
+            ><h1>{{ destaca.title.rendered }}</h1></a
+          >
+        </mat-card-title>
+      </mat-card>
+    </div>
+    }
+  </div>
+  <!-- Banner -->
+  <div class="clas-banner">
+    <div class="img-banner">
+      <a href="" target="_blank" rel="noopener">
+        <img
+          src="https://estiloinformativo.com/wp-content/uploads/2024/02/Banner-gob-e-febrero-2024.jpg"
+          alt="“GonbE"
+          width="380"
+          height="380"
+        />
+      </a>
+    </div>
+    <!-- banner 2 -->
+    <div class="img-banner">
+      <a href="" target="_blank" rel="noopener">
+        <img
+          src="https://estiloinformativo.com/wp-content/uploads/2024/02/Banner-gob-e-febrero-2024.jpg"
+          alt="“GonbE"
+          width="380"
+          height="380"
+        />
+      </a>
+    </div>
+  </div>
   <!-- Mat card posts -->
   @for(post of posts; track post.id){
   <mat-card>

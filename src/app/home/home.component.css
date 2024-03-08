@@ -7,17 +7,80 @@
   --color-orange: #e69c11;
   --color-black: #000000;
 }
+@media (max-width: 768px) {
+  .grid {
+    display: block;
+    width: 100% !important;
+    margin: 0 auto;
+  }
+  #destacado {
+    width: 100% !important;
+    display: block;
+  }
 
+  .card-mini {
+    width: 100% !important;
+    display: block;
+  }
+  .clas-banner {
+    display: block;
+    width: 100%;
+  }
+  .post-card {
+    display: block;
+    width: 100%;
+  }
+}
 /*
 Estilos generales de pagina
 */
 
 #destacado {
-  width: 100%;
-  height: 830px;
+  width: 680px;
+  height: 850px;
+  margin: 0;
+  border-radius: 0px;
 }
 #destacado img {
   height: 700px;
+}
+/* clase de grid de noticias */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  height: auto;
+  padding-right: 5px;
+}
+/* clase de imagenes de banner grid */
+.clas-banner {
+  top: 0;
+  padding: 0;
+}
+.img-banner {
+  border: solid 1px var(--color-black);
+  margin-bottom: 20px;
+  width: 380px;
+  height: 415px;
+}
+
+.post-card {
+  padding: 0;
+  margin: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 10px;
+}
+.card-mini {
+  border-radius: 0px;
+  top: 0;
+  margin: auto;
+  width: 290px;
+  height: 850px;
+}
+.card-mini-t {
+  font-size: 14px;
 }
 
 mat-card {
@@ -33,7 +96,7 @@ mat-card {
   font-family: Arial, Helvetica, sans-serif;
   margin-left: 5px;
   margin-right: 5px;
-  margin-top: 10px;
+  margin-top: 20px;
   overflow: hidden;
   display: inline-block;
 }
