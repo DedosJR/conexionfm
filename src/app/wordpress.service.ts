@@ -13,7 +13,7 @@ export class WordpressService {
 
   getPosts(): Observable<any[]> {
     // Agrega parámetros a la URL para limitar los posts y obtener solo tres
-    const url = `${this.apiUrl}?per_page=3&_embed`;
+    const url = `${this.apiUrl}?per_page=4&_embed`;
     return this.http.get<any[]>(url);
   }
   getPostsd(categoryId = 107): Observable<any[]> {

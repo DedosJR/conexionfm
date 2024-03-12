@@ -1,14 +1,13 @@
-<header>
+<header id="hide-header">
   <div class="logo" align="center">
-    <a href=""><img src="assets/ConexionFM-logo.png" alt="Logo" /></a>
+    <a routerLink="/"><img src="assets/ConexionFM-logo.png" alt="Logo" /></a>
   </div>
 </header>
 <!-- Toolbar de pagina web -->
 <mat-toolbar id="header">
   <button mat-icon-button (click)="openSidenav()">
     <mat-icon>menu</mat-icon>
-  </button>
-  <!-- <div class="nav">
+    <!-- <div class="nav">
     <ul>
       <li><a routerLink="/">Inicio</a></li>
       <li><a routerLink="/about">Quiénes somos</a></li>
@@ -16,11 +15,12 @@
       <li><a routerLink="/shedule">Programación</a></li>
     </ul>
   </div> -->
+  </button>
 </mat-toolbar>
 <!-- Sidenav -->
 <mat-sidenav id="sidenav" [opened]="sidenavOpen" (close)="closeSidenav()">
   <div class="logo-side">
-    <a href="/"
+    <a routerLink="/"
       ><img src="assets/ConexionFM-logo.png" alt="Logo" class="logo-side"
     /></a>
   </div>

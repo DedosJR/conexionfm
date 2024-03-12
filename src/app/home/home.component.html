@@ -1,6 +1,6 @@
 <header id="hide-header" [ngClass]="{ 'hide-header': isScrolled }">
   <div class="logo" align="center">
-    <a href=""><img src="assets/ConexionFM-logo.png" alt="Logo" /></a>
+    <a routerLink="/"><img src="assets/ConexionFM-logo.png" alt="Logo" /></a>
   </div>
 </header>
 <!-- Toolbar de pagina web -->
@@ -10,12 +10,14 @@
   </button>
   <div class="nav-menu">
     <ul id="menu">
-      <li><a routerLink=" ">Inicio</a></li>
+      <li><a routerLink="/">Inicio</a></li>
       <li><a routerLink="/about">Quiénes somos</a></li>
       <li><a routerLink="/shedule">Programación</a></li>
       <li><a routerLink="/contact">Contacto</a></li>
-      <li><a href="">Noticias</a></li>
-      <li><a href="https://ieebc.mx/">Elecciones 2024</a></li>
+      <li><a routerLink="/news">Noticias</a></li>
+      <li>
+        <a href="https://ieebc.mx/" target="_blank">Elecciones 2024</a>
+      </li>
     </ul>
   </div>
 </mat-toolbar>
@@ -32,7 +34,7 @@
   </button>
   <mat-sidenav-container class="container">
     <ul class="nav">
-      <li><a routerLink="/">Inicio</a></li>
+      <li><a routerLink="/home">Inicio</a></li>
       <li><a routerLink="/about">Quiénes somos</a></li>
       <li><a routerLink="/contact">Contacto</a></li>
       <li><a routerLink="/shedule">Programación</a></li>
@@ -53,7 +55,23 @@
           /></a>
           <mat-card-title>
             <a routerLink="/details/{{ destaca.id }}/{{ destaca.slug }}"
-              ><h1 class="card-mini-t">{{ destaca.title.rendered }}</h1></a
+              ><h2 class="card-mini-t">
+                {{ destaca.title.rendered }}
+              </h2></a
+            >
+          </mat-card-title>
+        </mat-card>
+      </div>
+      <div>
+        <mat-card class="card-mini">
+          <a routerLink="/details/{{ destaca.id }}/{{ destaca.slug }}"
+            ><img mat-card-image [src]="destaca.featured_image"
+          /></a>
+          <mat-card-title>
+            <a routerLink="/details/{{ destaca.id }}/{{ destaca.slug }}"
+              ><h2 class="card-mini-t">
+                {{ destaca.title.rendered }}
+              </h2></a
             >
           </mat-card-title>
         </mat-card>
@@ -62,14 +80,14 @@
     </div>
     <!-- Mat card Destacado -->
     @for(destaca of destacado; track destaca.id){
-    <div>
+    <div class="post-card">
       <mat-card id="destacado">
         <a routerLink="/details/{{ destaca.id }}/{{ destaca.slug }}"
           ><img mat-card-image [src]="destaca.featured_image"
         /></a>
         <mat-card-title>
           <a routerLink="/details/{{ destaca.id }}/{{ destaca.slug }}"
-            ><h1>{{ destaca.title.rendered }}</h1></a
+            ><h2>{{ destaca.title.rendered }}</h2></a
           >
         </mat-card-title>
       </mat-card>
@@ -102,16 +120,18 @@
   </div>
   <!-- Mat card posts -->
   @for(post of posts; track post.id){
-  <mat-card>
-    <a routerLink="/details/{{ post.id }}/{{ post.slug }}"
-      ><img [src]="post.featured_image" alt="Imagen del post"
-    /></a>
-    <mat-card-title
-      ><a routerLink="/details/{{ post.id }}/{{ post.slug }}"
-        ><h1>{{ post.title.rendered }}</h1></a
-      >
-    </mat-card-title>
-  </mat-card>
+  <div class="post-card">
+    <mat-card>
+      <a routerLink="/details/{{ post.id }}/{{ post.slug }}"
+        ><img [src]="post.featured_image" alt="Imagen del post"
+      /></a>
+      <mat-card-title
+        ><a routerLink="/details/{{ post.id }}/{{ post.slug }}"
+          ><h2>{{ post.title.rendered }}</h2></a
+        >
+      </mat-card-title>
+    </mat-card>
+  </div>
   }
 </section>
 <!-- Footer de pagina web -->

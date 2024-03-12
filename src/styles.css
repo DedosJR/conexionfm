@@ -16,7 +16,6 @@
   #menu {
     display: none;
   }
-
   section {
     padding: 0;
     margin: 0 auto;
@@ -29,10 +28,6 @@
     max-width: 300px;
   }
 
-  mat-card {
-    max-width: 100%;
-    display: block !important;
-  }
   mat-toolbar {
     max-width: 100%;
   }
@@ -45,9 +40,7 @@
     max-width: 100%;
   }
 }
-
 /*estilos globales de pagina*/
-
 html,
 body {
   padding: 0;
@@ -81,13 +74,13 @@ header {
   max-height: 200px;
   background-color: var(--color-white);
   position: fixed;
-  top: 5px;
+  top: 0px;
   z-index: 1000;
   transition: top 0.2s;
   animation-duration: 3s;
 }
 .hide-header {
-  top: -80px; /* La altura del encabezado */
+  top: -73px; /* La altura del encabezado */
 }
 .header {
   top: -200px;
@@ -95,7 +88,7 @@ header {
 #header {
   background-color: var(--color-black);
   position: fixed;
-  margin-top: 80px;
+  margin-top: 70px;
   z-index: 1000;
   transition: top 2.3s;
   animation-duration: 5s;
@@ -110,7 +103,6 @@ header {
   z-index: 1000;
   opacity: 95%;
 }
-
 #footer {
   display: flex;
   bottom: 0;
@@ -129,6 +121,7 @@ header {
   background-color: var(--color-orange);
 }
 .container ul {
+  position: fixed;
   margin: 0 auto;
   text-decoration: none;
   background-color: var(--color-orange);
@@ -138,13 +131,11 @@ header {
   top: 300px;
   animation-duration: 2s;
 }
-
 .close:hover {
   color: var(--color-orange);
   background-color: var(--color-black);
   animation-delay: 10s;
 }
-
 .footer-div {
   /* border-right: 1px solid var(--color-gray); */
   flex: 30%;
@@ -177,9 +168,7 @@ svg {
   margin: 10px auto;
   padding: 10px;
 }
-
 /* Nave menu */
-
 .nav-menu {
   display: flex;
   flex-direction: row;
@@ -191,24 +180,20 @@ svg {
   display: flex;
   padding: 0;
 }
-
 .nav-menu li {
   padding-top: 0;
   list-style: none;
   margin-right: 10px; /* Agrega espacio entre enlaces */
 }
-
 .nav-menu li:last-child {
   margin-right: 0; /* Elimina el margen del último elemento */
 }
-
 .nav-menu a {
   color: var(--color-white);
   padding: 10px;
   font-size: 16px;
   text-decoration: none;
 }
-
 .nav-menu a:hover {
   color: var(--color-orange);
   box-shadow: 2px 2px 8px #e69c11;
@@ -216,7 +201,6 @@ svg {
   transition: 0.2s;
   animation-delay: 0.5s;
 }
-
 /* Nav side */
 .nav {
   font-size: 18pt;
@@ -227,23 +211,19 @@ svg {
   text-decoration: none;
   justify-content: center;
 }
-
 .nav ul {
   list-style: none;
   display: flex;
   padding: 0;
 }
-
 .nav li {
   padding-top: 20px;
   list-style: none;
   margin-right: 10px; /* Agrega espacio entre enlaces */
 }
-
 .nav li:last-child {
   margin-right: 0; /* Elimina el margen del último elemento */
 }
-
 .nav a {
   color: var(--color-white);
   padding: 10px;
@@ -269,7 +249,6 @@ svg {
   max-width: 180px;
   max-height: 150px;
 }
-
 section {
   display: flex;
   flex-wrap: wrap;
@@ -277,4 +256,13 @@ section {
   margin: 10px auto;
   padding: 0;
   padding-top: 190px;
+}
+figure {
+  width: 100%;
+  margin: 0 auto;
+}
+img {
+  cursor: pointer;
+  width: 100%;
+  height: auto;
 }

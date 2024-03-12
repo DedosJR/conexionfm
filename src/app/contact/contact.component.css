@@ -1,0 +1,59 @@
+:root {
+  /* color-scheme: light dark; */
+  --color-white: #ffffff;
+  --color-gray-dark: #333;
+  --color-gray: #c6c6c6;
+  --color-dark: #212121;
+  --color-orange: #e69c11;
+  --color-black: #000000;
+}
+
+.form {
+  margin: 0 auto;
+  align-items: center;
+  width: 100%;
+}
+
+.form-contacto {
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 14px;
+  border-color: solid 1px var(--color-dark);
+}
+
+.form-contacto input {
+  margin-top: 10px;
+  padding-top: 10px;
+  width: 100%;
+}
+
+textarea {
+  margin-top: 10px;
+  padding-top: 10px;
+  width: 100%;
+  height: 200px;
+}
+
+.btn {
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.btn input {
+  margin-top: 10px;
+  width: 300px;
+  height: 30px;
+  font-size: 14px;
+  color: var(--color-white);
+  background-color: var(--color-gray-dark);
+}
+
+.btn input:hover {
+  transition: 0.3s;
+  background-color: var(--color-orange);
+}
