@@ -1,23 +1,34 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WordpressService {
+  private Bc = 'http://www.conexionfm.com/wp-json/wp/v2/categories';
   private apiUrl = 'http://www.conexionfm.com/wp-json/wp/v2/posts';
   private apiDestacado = 'http://www.conexionfm.com/wp-json/wp/v2/posts';
 
   constructor(private http: HttpClient) {}
 
   getPosts(): Observable<any[]> {
-    // Agrega parámetros a la URL para limitar los posts y obtener solo tres
-    const url = `${this.apiUrl}?per_page=4&_embed`;
-    return this.http.get<any[]>(url);
+    // Use HttpParams to set query parameters
+    let params = new HttpParams().set('per_page', '4').set('_embed', '');
+    return this.http.get<any[]>(this.apiUrl, { params });
   }
+
   getPostsd(categoryId = 107): Observable<any[]> {
-    const url = `${this.apiDestacado}?categories=${categoryId}&per_page=1&_embed`;
+    let params = new HttpParams()
+      .set('categories', categoryId.toString())
+      .set('per_page', '1')
+      .set('_embed', '');
+    return this.http.get<any[]>(this.apiDestacado, { params });
+  }
+
+  getPostBc(categoryId = 107): Observable<any[]> {
+    // Directly fetch the category by ID
+    const url = `${this.Bc}?categories=${categoryId}&per_page=1&_embed`;
     return this.http.get<any[]>(url);
   }
 }

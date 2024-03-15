@@ -112,7 +112,7 @@ header {
   margin: 0 auto;
   background-color: var(--color-gray);
 }
-.container {
+.container-1 {
   position: absolute;
   top: 10px;
   bottom: 0;
@@ -120,7 +120,7 @@ header {
   right: 0;
   background-color: var(--color-orange);
 }
-.container ul {
+.container-1 ul {
   position: fixed;
   margin: 0 auto;
   text-decoration: none;
@@ -256,6 +256,13 @@ section {
   margin: 10px auto;
   padding: 0;
   padding-top: 190px;
+}
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1390px;
+  margin: 30px auto;
+  padding: 0;
 }
 figure {
   width: 100%;
