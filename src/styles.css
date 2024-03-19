@@ -104,19 +104,20 @@ header {
   opacity: 95%;
 }
 #footer {
+  color: var(--color-white);
   display: flex;
   bottom: 0;
   left: 0;
   right: 0;
   height: auto;
   margin: 0 auto;
-  background-color: var(--color-gray);
+  background-color: var(--color-dark);
 }
 .container-1 {
   position: absolute;
   top: 10px;
   bottom: 0;
-  left: 0;
+  left: 15px;
   right: 0;
   background-color: var(--color-orange);
 }
@@ -255,7 +256,7 @@ section {
   width: 1390px;
   margin: 10px auto;
   padding: 0;
-  padding-top: 190px;
+  padding-top: 145px;
 }
 .content {
   display: flex;

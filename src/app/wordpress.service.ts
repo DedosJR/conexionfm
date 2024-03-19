@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class WordpressService {
-  private Bc = 'http://www.conexionfm.com/wp-json/wp/v2/categories';
-  private apiUrl = 'http://www.conexionfm.com/wp-json/wp/v2/posts';
-  private apiDestacado = 'http://www.conexionfm.com/wp-json/wp/v2/posts';
+  private Bc = 'https://www.conexionfm.com/wp-json/wp/v2/categories/107';
+  private apiUrl = 'https://www.conexionfm.com/wp-json/wp/v2/posts';
+  private apiDestacado = 'https://www.conexionfm.com/wp-json/wp/v2/posts';
 
   constructor(private http: HttpClient) {}
 
@@ -27,8 +27,7 @@ export class WordpressService {
   }
 
   getPostBc(categoryId = 107): Observable<any[]> {
-    // Directly fetch the category by ID
-    const url = `${this.Bc}?categories=${categoryId}&per_page=1&_embed`;
+    const url = `${this.Bc}${categoryId.toString}`;
     return this.http.get<any[]>(url);
   }
 }

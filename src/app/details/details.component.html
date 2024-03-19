@@ -36,32 +36,31 @@
     </ul>
   </mat-sidenav-container>
 </mat-sidenav>
-
-<div>
+<!-- Contenido -->
+<div class="container">
   <section>
-    <article>
-      <div class="articulo">
-        @if(post){
-        <h1>{{ post.title.rendered }}</h1>
-        <img [src]="post.featured_image" alt="Imagen del post" />
-        <div [innerHTML]="post.content.rendered"></div>
-        }
+    <div class="row">
+      <div class="col-md-8">
+        <article class="articulo">
+          @if(post ){
+          <h1>{{ post.title.rendered }}</h1>
+          <img [src]="post.featured_image" alt="Imagen del post" />
+          <div [innerHTML]="post.content.rendered"></div>
+          }
+        </article>
       </div>
-      <br />
-    </article>
-    <aside class="aside">
-      <div clas="row1">
-        <div align="center">
-          <a href="URL" target="_blank">
-            <img
-              src="https://estiloinformativo.com/wp-content/uploads/2023/11/APP-Identidad-digital-scaled.jpg"
-              alt="GobE"
-              width="400"
-              height="400"
-            />
-          </a>
-        </div>
+      <!-- Banner -->
+      <div class="col-md-4">
+        <!-- Corregido: Cambiado "clas" por "class" y añadido "col" para utilizar la cuadrícula de Bootstrap -->
+        <a href="URL" target="_blank">
+          <img
+            src="https://estiloinformativo.com/wp-content/uploads/2023/11/APP-Identidad-digital-scaled.jpg"
+            alt="GobE"
+            width="380"
+            height="380"
+          />
+        </a>
       </div>
-    </aside>
+    </div>
   </section>
 </div>
