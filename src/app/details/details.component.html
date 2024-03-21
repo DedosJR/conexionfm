@@ -44,7 +44,12 @@
         <article class="articulo">
           @if(post ){
           <h1>{{ post.title.rendered }}</h1>
+          <h3>Noticias de {{ bc.name }}</h3>
+
           <img [src]="post.featured_image" alt="Imagen del post" />
+          <div class="fecha-user">
+            <h4>{{ formatDate(post.date) }}</h4>
+          </div>
           <div [innerHTML]="post.content.rendered"></div>
           }
         </article>

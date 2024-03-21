@@ -7,6 +7,7 @@ import { MatSidenav, MatSidenavContainer } from '@angular/material/sidenav';
 import { WordpressService } from '../wordpress.service';
 import { CommonModule, NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-details',
@@ -30,10 +31,19 @@ export class DetailsComponent {
   postId: number = -1;
   postSlug: any;
   post: any; // Variable para almacenar los detalles del artículo
-
-  constructor(private route: ActivatedRoute, private http: HttpClient) {}
+  bc: any = [];
+  constructor(
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private wordpressService: WordpressService
+  ) {}
 
   async ngOnInit(): Promise<void> {
+    //categorias
+    this.wordpressService.getPostBc(107).subscribe((bc) => {
+      this.bc = bc;
+      //console.log(bc);
+    });
     this.route.params.subscribe(async (params) => {
       this.postId = +params['id'];
       this.postSlug = params['slug'];
@@ -61,6 +71,7 @@ export class DetailsComponent {
     }
     return undefined;
   }
+
   //sinedav
   sidenavOpen = false;
   openSidenav() {
@@ -69,5 +80,10 @@ export class DetailsComponent {
 
   closeSidenav() {
     this.sidenavOpen = false;
+  }
+  formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    return format(date, " 'Publlicado ' d - MMMM - yyyy ");
+    //return 'Publicado: ' + format(date, "'Fecha' yyyy-MM-dd  'Hora' HH:mm:ss");
   }
 }

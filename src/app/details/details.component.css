@@ -60,3 +60,13 @@ h1 {
 .col-md-4 a img {
   margin-bottom: 20px;
 }
+.fecha-user {
+  /*border-top: solid 1px var(--color-black);*/
+  border-bottom: solid 1px var(--color-black);
+}
+.fecha-user h4 {
+  font-weight: 500;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: end;
+}

@@ -50,13 +50,15 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.wordpressService.getPosts().subscribe((posts) => {
       this.posts = posts;
+      //console.log(posts);
     });
     this.wordpressService.getPostsd().subscribe((destacado) => {
       this.destacado = destacado;
+      //console.log(destacado);
     });
     this.wordpressService.getPostBc(107).subscribe((bc) => {
       this.bc = bc;
-      console.log(bc);
+      // console.log(bc);
     });
   }
 

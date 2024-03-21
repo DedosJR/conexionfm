@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class WordpressService {
-  private Bc = 'https://www.conexionfm.com/wp-json/wp/v2/categories';
-  private apiUrl = 'https://www.conexionfm.com/wp-json/wp/v2/posts';
-  private apiDestacado = 'https://www.conexionfm.com/wp-json/wp/v2/posts';
+  private Bc = 'http://www.conexionfm.com/wp-json/wp/v2/categories';
+  private apiUrl = 'http://www.conexionfm.com/wp-json/wp/v2/posts';
+  private apiDestacado = 'http://www.conexionfm.com/wp-json/wp/v2/posts';
 
   constructor(private http: HttpClient) {}
 
