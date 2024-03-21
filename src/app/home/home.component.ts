@@ -12,7 +12,7 @@ import {
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
 import { WordpressService } from '../wordpress.service';
-import { NgClass } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -32,6 +32,7 @@ import { NgClass } from '@angular/common';
     MatCardImage,
     MatCardFooter,
     NgClass,
+    CommonModule,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
@@ -53,8 +54,9 @@ export class HomeComponent implements OnInit {
     this.wordpressService.getPostsd().subscribe((destacado) => {
       this.destacado = destacado;
     });
-    this.wordpressService.getPostBc().subscribe((bc) => {
+    this.wordpressService.getPostBc(107).subscribe((bc) => {
       this.bc = bc;
+      console.log(bc);
     });
   }
 
