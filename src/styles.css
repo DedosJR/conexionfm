@@ -8,7 +8,7 @@
   --color-orange: #ff6633;
   --color-black: #000000;
 }
-@media (max-width: 768px) {
+@media screen and (max-width: 600px) {
   body {
     margin: 0;
     padding: 0;
@@ -103,7 +103,9 @@ header {
   z-index: 1000;
   opacity: 95%;
 }
+
 #footer {
+  position: static;
   color: var(--color-white);
   display: flex;
   bottom: 0;
@@ -273,4 +275,31 @@ img {
   cursor: pointer;
   width: 100%;
   height: auto;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #fff; /* Color de fondo del submenú */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra del submenú */
+  z-index: 1; /* Asegura que el submenú esté encima del contenido */
+}
+
+#menu li:hover .submenu {
+  display: block; /* Muestra el submenú cuando se pasa el mouse por encima */
+}
+
+.submenu li {
+  float: none; /* Alinea los elementos del submenú verticalmente */
+}
+
+.submenu a {
+  display: block;
+  padding: 10px;
+  color: #333; /* Color de texto del submenú */
+  text-decoration: none;
+}
+
+.submenu a:hover {
+  background-color: #f2f2f2; /* Color de fondo del elemento del submenú al pasar el mouse */
 }

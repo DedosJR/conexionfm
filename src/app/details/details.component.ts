@@ -28,10 +28,10 @@ import { format } from 'date-fns';
   providers: [WordpressService],
 })
 export class DetailsComponent {
-  postId: number = -1;
-  postSlug: any;
-  post: any; // Variable para almacenar los detalles del artículo
-  bc: any = [];
+  postId: number = -1; // variable para el id del articulo
+  postSlug: any; //variable para el slug de la noticia
+  post: any; //Variable para almacenar los detalles del artículo
+  bc: any = []; //variable para el almacenamiento de la categoria de BC
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
@@ -40,10 +40,11 @@ export class DetailsComponent {
 
   async ngOnInit(): Promise<void> {
     //categorias
-    this.wordpressService.getPostBc(107).subscribe((bc) => {
+    this.wordpressService.getPostBc(2).subscribe((bc) => {
       this.bc = bc;
       //console.log(bc);
     });
+    //Mostrar detalles de las noticias dentro del post
     this.route.params.subscribe(async (params) => {
       this.postId = +params['id'];
       this.postSlug = params['slug'];
@@ -54,13 +55,15 @@ export class DetailsComponent {
   async loadPostDetails() {
     try {
       this.post = await this.http
-        .get<any>(`http://conexionfm.com/wp-json/wp/v2/posts/${this.postId}`)
+        .get<any>(
+          `http://panel.conexionfm.com/wp-json/wp/v2/posts/${this.postId}`
+        )
         .toPromise();
     } catch (error) {
       console.error('Error al cargar los detalles del artículo', error);
     }
   }
-
+  //Mostrar las imagenes de los post
   getFeaturedMediaUrl(post: any): string | undefined {
     if (
       post?._embedded &&
@@ -77,10 +80,11 @@ export class DetailsComponent {
   openSidenav() {
     this.sidenavOpen = true;
   }
-
+  //Cerrar la ventana del sidenav
   closeSidenav() {
     this.sidenavOpen = false;
   }
+  //Mostrar la fecha de las publicaciones en las entradas
   formatDate(dateString: string): string {
     const date = new Date(dateString);
     return format(date, " 'Publlicado ' d - MMMM - yyyy ");

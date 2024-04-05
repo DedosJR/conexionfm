@@ -48,28 +48,31 @@ export class HomeComponent implements OnInit {
   constructor(private wordpressService: WordpressService) {}
 
   ngOnInit(): void {
+    //Conexion al servicio para traer los ultmos 10 post
     this.wordpressService.getPosts().subscribe((posts) => {
       this.posts = posts;
       //console.log(posts);
     });
+    //Conexion al servicio para traer los 4 post de categoria BC al destacado
     this.wordpressService.getPostsd().subscribe((destacado) => {
       this.destacado = destacado;
       //console.log(destacado);
     });
-    this.wordpressService.getPostBc(107).subscribe((bc) => {
+    //Conexion al servicio para traer ultimo post de la categoria de BC
+    this.wordpressService.getPostBc(2).subscribe((bc) => {
       this.bc = bc;
       // console.log(bc);
     });
   }
-
+  //Realizar apertura del sidenav
   openSidenav() {
     this.sidenavOpen = true;
   }
-
+  //Realizar el cerrado del sidenav
   closeSidenav() {
     this.sidenavOpen = false;
   }
-
+  //Scroll para el nav se deslice hacia arriba
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const scrollY = window.scrollY;
