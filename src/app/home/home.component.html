@@ -46,7 +46,6 @@
 <!-- Inicio de pagina web -->
 
 <section>
-  @for (post of posts; track post.id) {
   <!-- Carrousel de notas-->
   <div id="carouselExampleCaptions" class="carousel slide">
     <div class="carousel-indicators">
@@ -71,6 +70,7 @@
         aria-label="Slide 3"
       ></button>
     </div>
+    @for (post of posts; track post.id) {
     <div class="carousel-inner">
       <div class="carousel-item active">
         <a routerLink="/details/{{ post.id }}/{{ post.slug }}"
@@ -82,18 +82,22 @@
           >
         </div>
       </div>
+
       <!-- Nota 2 -->
+      @for( Deporte of deportespost; track Deporte.id){
       <div class="carousel-item">
-        <a routerLink="/details/{{ post.id }}/{{ post.slug }}"
-          ><img [src]="post.featured_image" alt="Imagen del post"
+        <a routerLink="/details/{{ Deporte.id }}/{{ Deporte.slug }}"
+          ><img [src]="Deporte.featured_image" alt="Imagen del post"
         /></a>
         <div class="carousel-caption d-none d-md-block">
-          <a routerLink="/details/{{ post.id }}/{{ post.slug }}"
-            ><h1>{{ post.title.rendered }}</h1></a
+          <a routerLink="/details/{{ Deporte.id }}/{{ Deporte.slug }}"
+            ><h1>{{ Deporte.title.rendered }}</h1></a
           >
         </div>
       </div>
+      }
       <!-- Nota 3 -->
+      @for (post of posts; track post.id) {
       <div class="carousel-item">
         <a routerLink="/details/{{ post.id }}/{{ post.slug }}"
           ><img [src]="post.featured_image" alt="Imagen del post"
@@ -104,6 +108,7 @@
           >
         </div>
       </div>
+      }
     </div>
     <button
       class="carousel-control-prev"
@@ -123,11 +128,10 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
+    }
   </div>
-  }
 </section>
 <!-- Mat card posts -->
-
 <div class="container">
   <div class="row">
     <div class="title-cat">
@@ -137,7 +141,6 @@
     </div>
   </div>
 </div>
-
 <!-- post -->
 <div class="degrad">
   <section class="content">
@@ -159,6 +162,34 @@
     }
   </section>
 </div>
+<!-- deportes -->
+<div class="container">
+  <div class="row">
+    <div class="title-cat">
+      <a
+        ><h1 class="categoria">{{ deportes.name }}</h1></a
+      >
+    </div>
+  </div>
+</div>
+<section class="content">
+  @for(Deporte of deportespost; track Deporte.id){
+  <div class="grid">
+    <div class="post-card">
+      <mat-card>
+        <a routerLink="/details/{{ Deporte.id }}/{{ Deporte.slug }}"
+          ><img [src]="Deporte.featured_image" alt="Imagen del post"
+        /></a>
+        <mat-card-title>
+          <a routerLink="/details/{{ Deporte.id }}/{{ Deporte.slug }}"
+            ><h2>{{ Deporte.title.rendered }}</h2></a
+          >
+        </mat-card-title>
+      </mat-card>
+    </div>
+  </div>
+  }
+</section>
 
 <!-- Footer de pagina web -->
 <footer id="footer">

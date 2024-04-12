@@ -9,6 +9,7 @@ export class WordpressService {
   private Bc = 'https://panel.conexionfm.com/wp-json/wp/v2/categories';
   private apiUrl = 'https://panel.conexionfm.com/wp-json/wp/v2/posts';
   private apiDestacado = 'https://panel.conexionfm.com/wp-json/wp/v2/posts';
+  private Deportes = 'https://panel.conexionfm.com/wp-json/wp/v2/categories';
 
   constructor(private http: HttpClient) {}
   //Conexion  al portal de WP para la sección de post últimos 10
@@ -28,5 +29,17 @@ export class WordpressService {
   getPostBc(categoryId: number): Observable<any> {
     const url = `${this.Bc}/${categoryId}`;
     return this.http.get<any>(url);
+  }
+  //deportes
+  getPostDeportes(categoryId: number): Observable<any> {
+    const url = `${this.Deportes}/${categoryId}`;
+    return this.http.get<any>(url);
+  }
+  getPostDeportespost(categoryId = 4): Observable<any[]> {
+    let params = new HttpParams()
+      .set('categories', categoryId.toString())
+      .set('per_page', '4')
+      .set('_embed', '');
+    return this.http.get<any[]>(this.apiDestacado, { params });
   }
 }

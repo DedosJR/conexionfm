@@ -201,6 +201,7 @@ mat-card-title a:hover {
   object-position: center;
   width: 100%;
   height: auto;
+  aspect-ratio: 4/2;
 }
 /* Estilos de texto */
 .carousel-inner h1 {

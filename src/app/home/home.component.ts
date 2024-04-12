@@ -44,6 +44,8 @@ export class HomeComponent implements OnInit {
   destacado: any = [];
   isScrolled = false;
   bc: any = [];
+  deportes: any = [];
+  deportespost: any = [];
 
   constructor(private wordpressService: WordpressService) {}
 
@@ -62,6 +64,16 @@ export class HomeComponent implements OnInit {
     this.wordpressService.getPostBc(2).subscribe((bc) => {
       this.bc = bc;
       // console.log(bc);
+    });
+    //deportes
+    this.wordpressService.getPostDeportes(4).subscribe((deportes) => {
+      this.deportes = deportes;
+      // console.log(bc);
+    });
+    //post
+    this.wordpressService.getPostDeportespost().subscribe((deportespost) => {
+      this.deportespost = deportespost;
+      //console.log(destacado);
     });
   }
   //Realizar apertura del sidenav

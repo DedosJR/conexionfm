@@ -47,6 +47,7 @@ h1 {
 }
 .articulo img {
   width: 100%;
+  aspect-ratio: 4/2;
   height: auto;
   box-shadow: 0px 0px 10px #e69c11;
 }
@@ -59,6 +60,7 @@ h1 {
 }
 .col-md-4 a img {
   margin-bottom: 20px;
+  aspect-ratio: 1/1;
 }
 .fecha-user {
   /*border-top: solid 1px var(--color-black);*/
