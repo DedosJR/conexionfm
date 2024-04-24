@@ -12,9 +12,14 @@ export class WordpressService {
   private Deportes = 'https://panel.conexionfm.com/wp-json/wp/v2/categories';
 
   constructor(private http: HttpClient) {}
-  //Conexion  al portal de WP para la sección de post últimos 10
+  //Conexion  al portal de WP para carrousel
   getPosts(): Observable<any[]> {
     let params = new HttpParams().set('per_page', '1').set('_embed', '');
+    return this.http.get<any[]>(this.apiUrl, { params });
+  }
+  //Conexion  al portal de WP para la sección de news últimos 10
+  getPostsnews(): Observable<any[]> {
+    let params = new HttpParams().set('per_page', '10').set('_embed', '');
     return this.http.get<any[]>(this.apiUrl, { params });
   }
   // Conexion al portal de wp para traer últimos 4 post de la categoría de BC
