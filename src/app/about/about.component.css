@@ -1,0 +1,24 @@
+:root {
+  /* color-scheme: light dark; */
+  --color-white: #ffffff;
+  --color-gray-dark: #333;
+  --color-gray: #e4e2e2;
+  --color-dark: #212121;
+  --color-orange: #e69c11;
+  --color-black: #000000;
+}
+
+.banner-lateral {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  padding: 10px;
+  padding-top: 0;
+}
+.QuienesSomos img {
+  cursor: pointer;
+  width: 100%;
+  max-width: 1390px;
+  height: auto;
+}

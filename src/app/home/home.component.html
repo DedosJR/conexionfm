@@ -1,6 +1,81 @@
 <header id="hide-header" [ngClass]="{ 'hide-header': isScrolled }">
   <div class="logo" align="center">
-    <a routerLink="/"><img src="assets/ConexionFM-logo.png" alt="Logo" /></a>
+    <a routerLink="/"
+      ><img src="assets/Logo-Negro-450-X-80.png" alt="Logo"
+    /></a>
+    <!-- Player -->
+    <ul class="player">
+      <li>
+        <i
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasBottom"
+          aria-controls="offcanvasBottom"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="44"
+            height="44"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="m20.25 5.025-7.898-2.962-.703 1.873L14.484 5H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.018-.767-1.85-1.75-1.975zM4 19v-7h16v-2H4V7h16l.001 12H4z"
+            ></path>
+            <circle cx="16.5" cy="15.5" r="2.5"></circle>
+            <path d="M6 15h4.999v2H6z"></path>
+          </svg>
+        </i>
+      </li>
+    </ul>
+    <div
+      class="offcanvas offcanvas-bottom offcanvas-dark"
+      tabindex="-1"
+      id="offcanvasBottom"
+      aria-labelledby="offcanvasBottomLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasBottomLabel">
+          ConexionFM dale play
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <!-- contenido de player -->
+      <div class="offcanvas-body small">
+        <div id="audio-player">
+          <div id="cover-art"></div>
+          <div id="audio-controls">
+            <button id="play-button">
+              <i id="play-icon" class="fa fa-play"></i>
+            </button>
+            <div id="volume-wrapper">
+              <input
+                type="range"
+                id="volume-control"
+                min="0"
+                max="1"
+                step="0.1"
+                value="1"
+              />
+              <button id="volume-icon"><i class="fas fa-volume-up"></i></button>
+            </div>
+          </div>
+          <audio
+            id="audio-element"
+            src="https://server1.maxiradiofm.com:8010/radio.mp3"
+            autoplay
+          ></audio>
+        </div>
+      </div>
+    </div>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
   </div>
 </header>
 <!-- Toolbar de pagina web -->
@@ -10,7 +85,7 @@
   </button>
   <div class="nav-menu">
     <ul id="menu">
-      <li><a routerLink="/home" routerLinkActive="active">Inicio</a></li>
+      <li><a routerLink="/" routerLinkActive="active">Inicio</a></li>
       <li>
         <a routerLink="/about" routerLinkActive="active">Quiénes somos</a>
       </li>
@@ -26,17 +101,18 @@
 <!-- Sidenav -->
 <mat-sidenav id="sidenav" [opened]="sidenavOpen" (close)="closeSidenav()">
   <div class="logo-side">
-    <a href=""><img src="assets/Cabeza-Borde-Blanco.png" alt="Logo" /></a>
+    <a><img src="assets/Cabeza 512 X 512.png" alt="Logo" /></a>
   </div>
   <button mat-icon-button (click)="closeSidenav()" class="close" name="Cerrar">
     <mat-icon>close</mat-icon>
   </button>
   <mat-sidenav-container class="container-1">
     <ul class="nav">
-      <li><a routerLink="/home">Inicio</a></li>
+      <li><a routerLink="/">Inicio</a></li>
       <li><a routerLink="/about">Quiénes somos</a></li>
       <li><a routerLink="/contact">Contacto</a></li>
       <li><a routerLink="/shedule">Programación</a></li>
+      <li><a routerLink="/news">Noticias</a></li>
     </ul>
   </mat-sidenav-container>
 </mat-sidenav>
@@ -128,9 +204,9 @@
     </button>
     }
   </div>
-  <div class="banner-destacado">
+  <div class="banner-destacado" align="center">
     <a href="URL" target="_blank">
-      <img src="assets/Banner-300-500.jpg" alt="GobE" />
+      <img src="assets/Banner disponible 350 X 510.jpg" alt="publicidad" />
     </a>
   </div>
 </section>
@@ -197,99 +273,103 @@
 <!-- Footer de pagina web -->
 <footer id="footer">
   <div class="footer-div">
-    <div class="logo-footer" align="center">
-      <a href=""><img src="assets/Cabeza-Borde-Blanco.png" alt="Logo" /></a>
+    <div class="icon-f">
+      <div class="logo-footer" align="center">
+        <a href=""><img src="assets/Cabeza 512 X 512.png" alt="Logo" /></a>
+      </div>
     </div>
-  </div>
-  <div class="redes">
-    <p class="txt-redes">¡Siguenos!</p>
-    <br />
-    <!-- facebookicon -->
-    <a href="" class="icons">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="icon icon-tabler icon-tabler-brand-facebook"
-        width="44"
-        height="44"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="#ffffff"
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path
-          d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"
-        />
-      </svg>
-    </a>
-    <!-- twittericon -->
-    <a href="" class="icons">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="icon icon-tabler icon-tabler-brand-x"
-        width="44"
-        height="44"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="#ffffff"
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-        <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-      </svg>
-    </a>
-    <!-- youtubeicon -->
-    <a href="" class="icons">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="icon icon-tabler icon-tabler-brand-youtube"
-        width="44"
-        height="44"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="#ffffff"
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path
-          d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z"
-        />
-        <path d="M10 9l5 3l-5 3z" />
-      </svg>
-    </a>
-    <!-- spoty icon -->
-    <a href="" class="icons">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="icon icon-tabler icon-tabler-brand-spotify"
-        width="44"
-        height="44"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="#ffffff"
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-        <path d="M8 11.973c2.5 -1.473 5.5 -.973 7.5 .527" />
-        <path d="M9 15c1.5 -1 4 -1 5 .5" />
-        <path d="M7 9c2 -1 6 -2 10 .5" />
-      </svg>
-    </a>
-  </div>
-  <div class="direccion">
-    <dir>
-      Blvd. Agua caliente<br />
-      Plaza patria Tijuana B.C
-    </dir>
+    <div class="redes">
+      <p class="txt-redes">¡Siguenos!</p>
+      <br />
+      <!-- facebookicon -->
+      <a href="" class="icons">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-brand-facebook"
+          width="44"
+          height="44"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="#ffffff"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"
+          />
+        </svg>
+      </a>
+      <!-- twittericon -->
+      <a href="" class="icons">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-brand-x"
+          width="44"
+          height="44"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="#ffffff"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+          <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+        </svg>
+      </a>
+      <!-- youtubeicon -->
+      <a href="" class="icons">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-brand-youtube"
+          width="44"
+          height="44"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="#ffffff"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z"
+          />
+          <path d="M10 9l5 3l-5 3z" />
+        </svg>
+      </a>
+      <!-- spoty icon -->
+      <a href="" class="icons">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-brand-spotify"
+          width="44"
+          height="44"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="#ffffff"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+          <path d="M8 11.973c2.5 -1.473 5.5 -.973 7.5 .527" />
+          <path d="M9 15c1.5 -1 4 -1 5 .5" />
+          <path d="M7 9c2 -1 6 -2 10 .5" />
+        </svg>
+      </a>
+    </div>
+    <div class="direccion">
+      <h2>Ubicación</h2>
+      <ul>
+        <li>Blvd. Gustavo Díaz Ordaz No. 12649-11C Plaza Patria</li>
+        <li>Fracc. El Paraíso Tijuana B.C</li>
+        <li>Teléfono 664-379-2895</li>
+      </ul>
+    </div>
   </div>
 </footer>

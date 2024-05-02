@@ -10,10 +10,19 @@
 
 .form {
   margin: 0 auto;
+  padding-bottom: 20px;
   align-items: center;
   width: 100%;
+  border: solid 1px var(--color-dark);
 }
-
+.txt-form {
+  padding-top: 20px;
+  text-align: center;
+  margin: 0 auto;
+}
+.txt-form h1 {
+  font-weight: 500;
+}
 .form-contacto {
   margin: 0 auto;
   padding-left: 10px;

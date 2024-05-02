@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { RouterOutlet, RouterLink, ActivatedRoute } from '@angular/router';
 import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenav, MatSidenavContainer } from '@angular/material/sidenav';
 import { WordpressService } from '../wordpress.service';
-import { CommonModule, NgIf } from '@angular/common';
+import { CommonModule, NgClass, NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { format } from 'date-fns';
 
@@ -22,16 +22,18 @@ import { format } from 'date-fns';
     MatToolbar,
     MatSidenavContainer,
     CommonModule,
+    NgClass,
   ],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css',
   providers: [WordpressService],
 })
-export class DetailsComponent {
-  postId: number = -1; // variable para el id del articulo
+export class DetailsComponent implements OnInit {
+  postId: number = -1; //variable para el id del articulo
   postSlug: any; //variable para el slug de la noticia
   post: any; //Variable para almacenar los detalles del artículo
   bc: any = []; //variable para el almacenamiento de la categoria de BC
+  isScrolled = false;
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
@@ -83,6 +85,12 @@ export class DetailsComponent {
   //Cerrar la ventana del sidenav
   closeSidenav() {
     this.sidenavOpen = false;
+  }
+  //Scroll para el nav se deslice hacia arriba
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollY = window.scrollY;
+    this.isScrolled = scrollY > 200; // 200 es la posición de desplazamiento a partir de la cual se oculta el encabezado
   }
   //Mostrar la fecha de las publicaciones en las entradas
   formatDate(dateString: string): string {

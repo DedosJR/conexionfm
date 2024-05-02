@@ -72,3 +72,11 @@ h1 {
   padding: 10px;
   text-align: end;
 }
+.banner-lateral {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  padding: 10px;
+  padding-top: 0;
+}

@@ -67,12 +67,11 @@ body {
 }
 .logo-footer div {
   margin: 0 auto;
-  justify-content: center;
   display: block;
 }
 .logo-footer img {
   padding: 0 auto;
-  margin: 40px auto;
+  margin: 30px auto;
   width: 100px;
   height: 100px;
 }
@@ -93,7 +92,7 @@ header {
   top: -200px;
 }
 #header {
-  background-color: var(--color-black);
+  background-color: var(--color-dark);
   position: fixed;
   margin-top: 70px;
   z-index: 1000;
@@ -112,6 +111,7 @@ header {
 }
 
 #footer {
+  flex-wrap: wrap;
   position: static;
   color: var(--color-white);
   display: flex;
@@ -148,14 +148,18 @@ header {
 }
 .footer-div {
   /* border-right: 1px solid var(--color-gray); */
-  flex: 30%;
+  flex-wrap: wrap;
   justify-content: center;
   margin: 0 auto;
+  width: 100%;
+  max-width: 1390px;
+  display: flex;
+}
+.icon-f {
+  flex: 20%;
 }
 .redes {
-  /* border-right: 1px solid var(--color-gray); */
-  flex-wrap: wrap;
-  flex: 30%;
+  flex: 40%;
   margin: 10px auto;
   padding: 10px;
   justify-content: center;
@@ -177,6 +181,20 @@ svg {
   flex: 30%;
   margin: 10px auto;
   padding: 10px;
+  font-size: 12pt;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+.direccion ul {
+  list-style: none;
+  padding: 0px;
+}
+.direccion li {
+  margin-top: 5px;
 }
 /* Nave menu */
 .nav-menu {
@@ -270,7 +288,8 @@ section {
 .content {
   display: flex;
   flex-wrap: wrap;
-  width: 1390px;
+  width: 100%;
+  max-width: 1390px;
   margin: 30px auto;
   padding: 0;
 }
@@ -313,8 +332,81 @@ img {
 .banner-destacado {
   flex: 0 0 auto;
   width: 100%;
-  max-width: 345px;
+  max-width: 369px;
   height: auto;
-  padding: 20px;
+  padding: 10px;
   padding-top: 0;
+}
+/* boton de radio player */
+.player {
+  padding: 0;
+  padding-top: 20px;
+  margin-left: 700px;
+  margin-top: -80px;
+}
+
+.offcanvas-dark {
+  background-color: var(--color-dark); /* Bootstrap dark theme background */
+  color: var(--color-white);
+}
+
+.offcanvas-dark .btn-close {
+  filter: invert(1); /* Invert button color to be visible on dark backgrounds */
+}
+#audio-player {
+  width: 100%;
+  background-color: #00000088;
+  padding: 20px;
+  margin: auto;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+#cover-art {
+  width: 200px;
+  height: 200px;
+  max-width: 100px;
+  max-height: 100px;
+  background-image: url("https://server1.maxiradiofm.com/static/uploads/conexionfm/album_art.1707171680.jpg");
+  background-size: cover;
+  background-position: center;
+  margin-right: 20px; /* Ajuste de margen para separar la imagen de los controles */
+}
+
+#audio-controls {
+  display: flex;
+  align-items: center;
+  flex-grow: 1; /* Permite que los controles se expandan para llenar el espacio restante */
+}
+
+#play-button {
+  background-color: #db9834;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px; /* Ajuste de margen para separar los controles */
+}
+
+#volume-wrapper {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+#volume-control {
+  flex-grow: 1;
+  margin-top: 10px; /* Espacio adicional entre el control de volumen y el botón de reproducción */
+}
+
+#volume-icon {
+  color: #ffffff;
+  background-color: #db9834;
+  border: none;
+  padding: 10px;
+  border-radius: 50%; /* Hace que el botón de volumen sea redondeado */
+  cursor: pointer;
+  margin-left: 10px; /* Espacio entre el control de volumen y el botón de volumen */
 }
