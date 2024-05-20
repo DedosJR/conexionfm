@@ -1,2 +1,168 @@
 <!-- Pagina principal para mostrar lo de home -->
+<header id="hide-header" [ngClass]="{ 'hide-header': isScrolled }">
+  <div class="header-container">
+    <div class="logo">
+      <a routerLink="/"
+        ><img src="assets/Logo-Negro-450-X-80.png" alt="Logo"
+      /></a>
+    </div>
+  </div>
+</header>
+
+<!-- Toolbar de pagina web -->
+<mat-toolbar id="header" [ngClass]="{ 'hide-header': isScrolled }">
+  <button mat-icon-button (click)="openSidenav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div class="nav-menu">
+    <ul id="menu">
+      <li>
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Inicio</a
+        >
+      </li>
+      <li>
+        <a routerLink="/about" routerLinkActive="active">Quiénes somos</a>
+      </li>
+      <li>
+        <a routerLink="/shedule" routerLinkActive="active">Programación</a>
+      </li>
+      <li><a routerLink="/contact" routerLinkActive="active">Contacto</a></li>
+      <li><a routerLink="/news" routerLinkActive="active">Noticias</a></li>
+    </ul>
+  </div>
+</mat-toolbar>
+
+<!-- Sidenav -->
+<mat-sidenav id="sidenav" [opened]="sidenavOpen" (close)="closeSidenav()">
+  <div class="logo-side">
+    <a><img src="assets/Cabeza 512 X 512.png" alt="Logo" /></a>
+  </div>
+  <button mat-icon-button (click)="closeSidenav()" class="close" name="Cerrar">
+    <mat-icon>close</mat-icon>
+  </button>
+  <mat-sidenav-container class="container-1">
+    <ul class="nav">
+      <li><a routerLink="/">Inicio</a></li>
+      <li><a routerLink="/about">Quiénes somos</a></li>
+      <li><a routerLink="/contact">Contacto</a></li>
+      <li><a routerLink="/shedule">Programación</a></li>
+      <li><a routerLink="/news">Noticias</a></li>
+    </ul>
+  </mat-sidenav-container>
+</mat-sidenav>
+<!--Reproductor de Música-->
+<iframe
+  class="reproductor-fijo"
+  src="https://server1.maxiradiofm.com/public/conexionfm/embed?theme=dark&autoplay=true"
+  frameborder="0"
+  allow="autoplay"
+>
+</iframe>
 <router-outlet></router-outlet>
+<!-- Footer de pagina web -->
+<footer id="footer">
+  <div class="footer-div">
+    <div class="icon-f">
+      <div class="logo-footer" align="center">
+        <a href=""><img src="assets/Cabeza 512 X 512.png" alt="Logo" /></a>
+      </div>
+    </div>
+    <div class="redes">
+      <p class="txt-redes">¡Siguenos!</p>
+      <br />
+      <!-- facebookicon -->
+      <a href="" class="icons">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-brand-facebook"
+          width="44"
+          height="44"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="#ffffff"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"
+          />
+        </svg>
+      </a>
+      <!-- twittericon -->
+      <a href="" class="icons">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-brand-x"
+          width="44"
+          height="44"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="#ffffff"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+          <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+        </svg>
+      </a>
+      <!-- youtubeicon -->
+      <a href="" class="icons">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-brand-youtube"
+          width="44"
+          height="44"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="#ffffff"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z"
+          />
+          <path d="M10 9l5 3l-5 3z" />
+        </svg>
+      </a>
+      <!-- spoty icon -->
+      <a href="" class="icons">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-brand-spotify"
+          width="44"
+          height="44"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="#ffffff"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+          <path d="M8 11.973c2.5 -1.473 5.5 -.973 7.5 .527" />
+          <path d="M9 15c1.5 -1 4 -1 5 .5" />
+          <path d="M7 9c2 -1 6 -2 10 .5" />
+        </svg>
+      </a>
+    </div>
+    <div class="direccion">
+      <h2>Ubicación</h2>
+      <ul>
+        <li>Blvd. Gustavo Díaz Ordaz No. 12649-11C Plaza Patria</li>
+        <li>Fracc. El Paraíso Tijuana B.C</li>
+        <li>Teléfono 664-379-2895</li>
+      </ul>
+    </div>
+  </div>
+</footer>

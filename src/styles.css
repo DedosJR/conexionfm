@@ -8,7 +8,7 @@
   --color-orange: #ff6633;
   --color-black: #000000;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .banner-destacado {
     width: 100%;
     height: auto;
@@ -31,10 +31,13 @@
   header {
     max-width: 100%;
   }
+
+  .logo {
+    flex-direction: column;
+  }
   .logo img {
     max-width: 300px;
   }
-
   mat-toolbar {
     max-width: 100%;
   }
@@ -54,10 +57,10 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-.logo div {
+.logo {
   margin: 0 auto;
   justify-content: center;
-  display: block;
+  display: flex;
 }
 .logo a img {
   padding: 0 auto;
@@ -77,24 +80,24 @@ body {
 }
 header {
   width: 100%;
-  max-height: 200px;
+  max-height: 220px;
   background-color: var(--color-white);
   position: fixed;
-  top: 0px;
+  top: 10px;
   z-index: 1000;
-  transition: top 0.2s;
+  transition: top 1.3s;
   animation-duration: 3s;
 }
 .hide-header {
-  top: -73px; /* La altura del encabezado */
+  top: -93px; /* La altura del encabezado */
 }
 .header {
-  top: -200px;
+  top: -220px;
 }
 #header {
-  background-color: var(--color-dark);
+  background-color: var(--color-black);
   position: fixed;
-  margin-top: 70px;
+  margin-top: 93px;
   z-index: 1000;
   transition: top 2.3s;
   animation-duration: 5s;
@@ -120,6 +123,7 @@ header {
   right: 0;
   height: auto;
   margin: 0 auto;
+  margin-bottom: 150px;
   background-color: var(--color-dark);
 }
 .container-1 {
@@ -229,6 +233,10 @@ svg {
   transition: 0.2s;
   animation-delay: 0.5s;
 }
+.nav-menu ul li a.active {
+  color: var(--color-orange); /* Cambia el color del enlace activo */
+  font-weight: bold; /* O cualquier otro estilo que prefieras */
+}
 /* Nav side */
 .nav {
   font-size: 18pt;
@@ -283,7 +291,7 @@ section {
   width: 1390px;
   margin: 10px auto;
   padding: 0;
-  padding-top: 145px;
+  padding-top: 175px;
 }
 .content {
   display: flex;
@@ -338,13 +346,41 @@ img {
   padding-top: 0;
 }
 /* boton de radio player */
+
 .player {
-  padding: 0;
-  padding-top: 20px;
-  margin-left: 700px;
-  margin-top: -80px;
+  padding: 10px; /* Espacio interior */
 }
 
+.player ul {
+  display: block;
+  align-items: center; /* Centrar verticalmente los íconos */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.player li {
+  margin: 0 auto; /* Espacio entre íconos */
+}
+
+.icons-header {
+  padding: 0;
+  text-align: center;
+  padding-left: 15px;
+  font-size: 12pt;
+  font-weight: 500;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between; /* Distribuir elementos uniformemente */
+  align-items: center;
+  width: 100%;
+}
+/* Parte del player */
+.offcanvas {
+  height: 230px;
+  margin: 0;
+}
 .offcanvas-dark {
   background-color: var(--color-dark); /* Bootstrap dark theme background */
   color: var(--color-white);
@@ -409,4 +445,18 @@ img {
   border-radius: 50%; /* Hace que el botón de volumen sea redondeado */
   cursor: pointer;
   margin-left: 10px; /* Espacio entre el control de volumen y el botón de volumen */
+}
+/*Reproductor de musica*/
+.reproductor-fijo {
+  position: fixed;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 155px;
+  background-color: var(--color-dark);
+  color: #ffffff;
+  z-index: 1000;
+  padding: 15px;
+  box-sizing: border-box;
+  opacity: 100%;
 }

@@ -5,6 +5,7 @@ import { ContactComponent } from './contact/contact.component';
 import { NewsComponent } from './news/news.component';
 import { SheduleComponent } from './shedule/shedule.component';
 import { DetailsComponent } from './details/details.component';
+import { AppComponent } from './app.component';
 
 export const routes: Routes = [
   { path: '', title: 'ConexionFM | Inicio', component: HomeComponent },

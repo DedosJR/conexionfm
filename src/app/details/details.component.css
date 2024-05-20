@@ -35,15 +35,22 @@
   padding: 10px;
 }
 .articulo div {
-  font-size: 16pt;
+  font-size: 14pt;
   line-height: 2;
   text-align: justify;
   margin-top: 20px;
   margin-bottom: 20px;
+  letter-spacing: 0.5px;
 }
 h1 {
-  font-size: 18pt;
+  font-size: 26pt;
   font-weight: bold;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+h3 {
+  font-size: 12pt;
+  letter-spacing: 0.5px;
 }
 .articulo img {
   width: 100%;
@@ -79,4 +86,26 @@ h1 {
   height: auto;
   padding: 10px;
   padding-top: 0;
+}
+/* src/app/quote/quote.component.css */
+blockquote {
+  font-style: italic;
+  color: #555;
+  margin: 20px 40px;
+  padding: 10px 20px;
+  border-left: 5px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+blockquote cite {
+  display: block;
+  text-align: right;
+  font-style: normal;
+  color: #333;
+  margin-top: 10px;
+}
+
+cite {
+  font-style: italic;
+  color: #555;
 }

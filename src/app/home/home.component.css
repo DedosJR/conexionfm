@@ -7,7 +7,7 @@
   --color-orange: #e69c11;
   --color-black: #000000;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
   .grid {
     display: block;
     width: 100% !important;
@@ -36,6 +36,9 @@
     display: block;
     width: 100% !important;
     margin: 0 auto;
+  }
+  .player {
+    display: none;
   }
 }
 /*
@@ -221,4 +224,7 @@ mat-card-title a:hover {
   left: 0px;
   bottom: 0px;
   display: block;
+}
+.carousel-indicators button {
+  color: var(--color-orange);
 }
