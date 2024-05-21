@@ -55,4 +55,9 @@ export class WordpressService {
       .set('_embed', '');
     return this.http.get<any[]>(this.apiDestacado, { params });
   }
+  //Deportes para mostrar nombre de categoria
+  getPostDeportes(categoryId: number): Observable<any> {
+    const url = `${this.Deportes}/${categoryId}`;
+    return this.http.get<any>(url);
+  }
 }

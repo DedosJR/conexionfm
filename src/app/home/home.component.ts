@@ -45,6 +45,7 @@ export class HomeComponent implements OnInit {
   isScrolled = false;
   bc: any = [];
   deportes: any = [];
+  deportesname: any = [];
   deportespost: any = [];
 
   constructor(private wordpressService: WordpressService) {}
@@ -65,6 +66,12 @@ export class HomeComponent implements OnInit {
       this.bc = bc;
       // console.log(bc);
     });
+
+    //deportes para mostrar nombre de categoria
+    this.wordpressService.getPostDeportes(4).subscribe((deportesname) => {
+      this.deportesname = deportesname;
+      // console.log(bc);
+    });
     //deportes
     this.wordpressService.getPostDeportespostSlide(4).subscribe((deportes) => {
       this.deportes = deportes;
@@ -76,6 +83,7 @@ export class HomeComponent implements OnInit {
       //console.log(destacado);
     });
   }
+
   //Realizar apertura del sidenav
   openSidenav() {
     this.sidenavOpen = true;
