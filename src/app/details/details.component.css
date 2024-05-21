@@ -109,3 +109,47 @@ cite {
   font-style: italic;
   color: #555;
 }
+/* Estilos personalizados para mat-card-title */
+.title-news {
+  margin-top: 5px;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+/* Elimina la línea de enlace y el efecto de hover en naranja */
+.card a {
+  text-decoration: none;
+  color: inherit;
+}
+.card-body h4 {
+  margin-top: 5px;
+  text-align: justify;
+  font-size: 10pt;
+}
+.col {
+  width: 100%;
+  margin-bottom: 5px;
+}
+.card a:hover {
+  color: var(--color-orange);
+  transition: width 3s;
+  text-decoration: underline;
+}
+.article {
+  margin-top: 10px;
+  padding: 10px;
+}
+.title-reciente {
+  text-align: left;
+  margin-top: 15px;
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 10px;
+  border-bottom: solid 1px var(--color-orange);
+}

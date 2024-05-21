@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
       // console.log(bc);
     });
     //deportes
-    this.wordpressService.getPostDeportes(4).subscribe((deportes) => {
+    this.wordpressService.getPostDeportespostSlide(4).subscribe((deportes) => {
       this.deportes = deportes;
       // console.log(bc);
     });

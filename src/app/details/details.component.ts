@@ -34,6 +34,7 @@ export class DetailsComponent implements OnInit {
   post: any; //Variable para almacenar los detalles del artículo
   bc: any = []; //variable para el almacenamiento de la categoria de BC
   isScrolled = false;
+  article: any = [];
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
@@ -41,6 +42,11 @@ export class DetailsComponent implements OnInit {
   ) {}
 
   async ngOnInit(): Promise<void> {
+    //Conexion al servicio para traer los ultmos 10 post
+    this.wordpressService.getPostsnewsArticle().subscribe((article) => {
+      this.article = article;
+      //console.log(posts);
+    });
     //categorias
     this.wordpressService.getPostBc(2).subscribe((bc) => {
       this.bc = bc;
@@ -91,6 +97,9 @@ export class DetailsComponent implements OnInit {
   onWindowScroll() {
     const scrollY = window.scrollY;
     this.isScrolled = scrollY > 200; // 200 es la posición de desplazamiento a partir de la cual se oculta el encabezado
+  }
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   //Mostrar la fecha de las publicaciones en las entradas
   formatDate(dateString: string): string {

@@ -34,7 +34,7 @@ import { NgClass } from '@angular/common';
 })
 export class ContactComponent {
   sidenavOpen = false;
-  msg = 'Msg enviado';
+  msg = 'Mensaje enviado';
   isScrolled = false;
   openSidenav() {
     this.sidenavOpen = true;

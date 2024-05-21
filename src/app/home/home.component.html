@@ -42,7 +42,7 @@
       </div>
 
       <!-- Nota 2 -->
-      @for( Deporte of deportespost; track Deporte.id){
+      @for( Deporte of deportes; track Deporte.id){
       <div class="carousel-item">
         <a routerLink="/details/{{ Deporte.id }}/{{ Deporte.slug }}"
           ><img [src]="Deporte.featured_image" alt="Imagen del post"

@@ -16,9 +16,34 @@
   padding: 10px;
   padding-top: 0;
 }
-.QuienesSomos img {
-  cursor: pointer;
+.QuienesSomos {
+  cursor: none;
   width: 100%;
-  max-width: 1390px;
+  max-width: 300px;
   height: auto;
+}
+
+p {
+  line-height: 2;
+  letter-spacing: 0.5;
+  text-align: justify;
+  font-size: 14pt;
+  padding: 10px;
+}
+
+li {
+  line-height: 2;
+  letter-spacing: 0.5;
+  text-align: justify;
+  font-size: 14pt;
+  padding: 10px;
+}
+h1,
+h2,
+h3,
+h4 {
+  line-height: 2;
+  letter-spacing: 0.5;
+  text-align: justify;
+  padding: 10px;
 }

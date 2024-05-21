@@ -22,6 +22,10 @@ export class WordpressService {
     let params = new HttpParams().set('per_page', '10').set('_embed', '');
     return this.http.get<any[]>(this.apiUrl, { params });
   }
+  getPostsnewsArticle(): Observable<any[]> {
+    let params = new HttpParams().set('per_page', '3').set('_embed', '');
+    return this.http.get<any[]>(this.apiUrl, { params });
+  }
   // Conexion al portal de wp para traer últimos 4 post de la categoría de BC
   getPostsd(categoryId = 2): Observable<any[]> {
     let params = new HttpParams()
@@ -35,11 +39,15 @@ export class WordpressService {
     const url = `${this.Bc}/${categoryId}`;
     return this.http.get<any>(url);
   }
-  //deportes
-  getPostDeportes(categoryId: number): Observable<any> {
-    const url = `${this.Deportes}/${categoryId}`;
-    return this.http.get<any>(url);
+  //deportes para mostrar carrousel
+  getPostDeportespostSlide(categoryId = 4): Observable<any[]> {
+    let params = new HttpParams()
+      .set('categories', categoryId.toString())
+      .set('per_page', '1')
+      .set('_embed', '');
+    return this.http.get<any[]>(this.apiDestacado, { params });
   }
+  //Categoria de deportes para mosrtrar cards
   getPostDeportespost(categoryId = 4): Observable<any[]> {
     let params = new HttpParams()
       .set('categories', categoryId.toString())
