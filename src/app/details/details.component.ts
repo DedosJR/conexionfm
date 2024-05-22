@@ -64,7 +64,7 @@ export class DetailsComponent implements OnInit {
     try {
       this.post = await this.http
         .get<any>(
-          `http://panel.conexionfm.com/wp-json/wp/v2/posts/${this.postId}`
+          `https://panel.conexionfm.com/wp-json/wp/v2/posts/${this.postId}`
         )
         .toPromise();
     } catch (error) {
