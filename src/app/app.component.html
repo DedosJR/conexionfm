@@ -54,28 +54,28 @@
     </ul>
   </mat-sidenav-container>
 </mat-sidenav>
-<!--Reproductor de Música-->
-<iframe
-  class="reproductor-fijo"
-  src="https://server1.maxiradiofm.com/public/conexionfm/embed?theme=dark&autoplay=true"
-  frameborder="0"
-  allow="autoplay"
->
-</iframe>
+<!-- Inicio de pagina web -->
 <router-outlet></router-outlet>
+<!-- End pagina web -->
 <!-- Footer de pagina web -->
 <footer id="footer">
   <div class="footer-div">
     <div class="icon-f">
       <div class="logo-footer" align="center">
-        <a href=""><img src="assets/Cabeza 512 X 512.png" alt="Logo" /></a>
+        <a routerLink="/"
+          ><img src="assets/Cabeza 512 X 512.png" alt="Logo"
+        /></a>
       </div>
     </div>
     <div class="redes">
       <p class="txt-redes">¡Siguenos!</p>
       <br />
       <!-- facebookicon -->
-      <a href="" class="icons">
+      <a
+        href="https://www.facebook.com/ConexionfmRadioOficial"
+        target="_blank"
+        class="icons"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="icon icon-tabler icon-tabler-brand-facebook"
@@ -95,7 +95,7 @@
         </svg>
       </a>
       <!-- twittericon -->
-      <a href="" class="icons">
+      <a href="https://x.com/?lang=es" target="_blank" class="icons">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="icon icon-tabler icon-tabler-brand-x"
@@ -114,7 +114,7 @@
         </svg>
       </a>
       <!-- youtubeicon -->
-      <a href="" class="icons">
+      <a href="https://www.youtube.com/" target="_blank" class="icons">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="icon icon-tabler icon-tabler-brand-youtube"
@@ -135,7 +135,11 @@
         </svg>
       </a>
       <!-- spoty icon -->
-      <a href="" class="icons">
+      <a
+        href="https://open.spotify.com/show/67IFnTMCqxTlsTuwdgdXpX?si=5df4d880fe064464"
+        target="_blank"
+        class="icons"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="icon icon-tabler icon-tabler-brand-spotify"
@@ -166,3 +170,11 @@
     </div>
   </div>
 </footer>
+<!--Reproductor de Música-->
+<iframe
+  class="reproductor-fijo"
+  src="https://server1.maxiradiofm.com/public/conexionfm/embed?theme=dark&autoplay=true"
+  frameborder="0"
+  allow="autoplay"
+>
+</iframe>
