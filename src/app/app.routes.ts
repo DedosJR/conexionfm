@@ -15,7 +15,7 @@ export const routes: Routes = [
   { path: 'shedule', title: 'Programación', component: SheduleComponent },
   {
     path: 'details/:id/:slug',
-    title: 'Noticias',
+    title: 'ConexionFM',
     component: DetailsComponent,
   },
 ];

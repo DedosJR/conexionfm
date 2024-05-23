@@ -1,5 +1,10 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import {
+  Router,
+  NavigationEnd,
+  RouterOutlet,
+  RouterLink,
+} from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -12,14 +17,12 @@ import {
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
 import { WordpressService } from '../wordpress.service';
-import { CommonModule, NgClass } from '@angular/common';
+import { CommonModule, NgClass, ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-
   imports: [
-    HomeComponent,
     RouterOutlet,
     RouterLink,
     MatToolbarModule,
@@ -35,7 +38,7 @@ import { CommonModule, NgClass } from '@angular/common';
     CommonModule,
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
+  styleUrls: ['./home.component.css'],
   providers: [WordpressService],
 })
 export class HomeComponent implements OnInit {
@@ -48,7 +51,18 @@ export class HomeComponent implements OnInit {
   deportesname: any = [];
   deportespost: any = [];
 
-  constructor(private wordpressService: WordpressService) {}
+  constructor(
+    private wordpressService: WordpressService,
+    private router: Router,
+    private viewportScroller: ViewportScroller
+  ) {
+    // Subscribe to route events to scroll to top on navigation end
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.viewportScroller.scrollToPosition([0, 0]);
+      }
+    });
+  }
 
   ngOnInit(): void {
     //Conexion al servicio para traer los ultmos 10 post

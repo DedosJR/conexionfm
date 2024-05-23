@@ -66,3 +66,29 @@ textarea {
   transition: 0.3s;
   background-color: var(--color-orange);
 }
+.mapa {
+  aspect-ratio: 4/2;
+  padding: 10px;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 0;
+}
+iframe {
+  margin-top: 10px;
+  width: 100%;
+  max-width: 1000px;
+}
+/*Banner*/
+
+.banner-destacado {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 369px;
+  height: auto;
+  padding: 10px;
+  padding-top: 0;
+  margin-top: 10px;
+}
+section {
+  margin-top: 0px;
+}

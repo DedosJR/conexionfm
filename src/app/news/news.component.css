@@ -34,14 +34,6 @@ h2 {
   width: 380px;
   height: 415px;
 }
-
-.degrad {
-  margin-bottom: 15px;
-  display: flex;
-  width: 100%;
-  height: auto;
-  background: radial-gradient(circle, #ffcc00, #ff6600);
-}
 /* Estilos personalizados para mat-card-title */
 .title-news {
   text-transform: capitalize;
@@ -64,4 +56,7 @@ h2 {
 .txt-p {
   font-size: 12pt;
   text-decoration: none;
+}
+img-news {
+  aspect-ratio: 16/9;
 }

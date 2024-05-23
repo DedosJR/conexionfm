@@ -39,18 +39,22 @@
 <!-- Sidenav -->
 <mat-sidenav id="sidenav" [opened]="sidenavOpen" (close)="closeSidenav()">
   <div class="logo-side">
-    <a><img src="assets/Cabeza 512 X 512.png" alt="Logo" /></a>
+    <a routerLink="/" (click)="closeSidenav()"
+      ><img src="assets/Cabeza 512 X 512.png" alt="Logo"
+    /></a>
   </div>
   <button mat-icon-button (click)="closeSidenav()" class="close" name="Cerrar">
     <mat-icon>close</mat-icon>
   </button>
   <mat-sidenav-container class="container-1">
     <ul class="nav">
-      <li><a routerLink="/">Inicio</a></li>
-      <li><a routerLink="/about">Quiénes somos</a></li>
-      <li><a routerLink="/contact">Contacto</a></li>
-      <li><a routerLink="/shedule">Programación</a></li>
-      <li><a routerLink="/news">Noticias</a></li>
+      <li><a routerLink="/" (click)="closeSidenav()">Inicio</a></li>
+      <li><a routerLink="/about" (click)="closeSidenav()">Quiénes somos</a></li>
+      <li><a routerLink="/contact" (click)="closeSidenav()">Contacto</a></li>
+      <li>
+        <a routerLink="/shedule" (click)="closeSidenav()">Programación</a>
+      </li>
+      <li><a routerLink="/news" (click)="closeSidenav()">Noticias</a></li>
     </ul>
   </mat-sidenav-container>
 </mat-sidenav>

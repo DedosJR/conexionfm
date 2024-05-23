@@ -14,14 +14,13 @@
     margin: 0;
   }
 }
-
-.articulo {
-  max-width: 100%;
-  flex-direction: column;
-}
 .articulo img {
   max-width: 100%;
   max-height: auto;
+  width: 100%;
+  aspect-ratio: 4/2;
+  height: auto;
+  box-shadow: 0px 0px 10px #e69c11;
 }
 
 /* end responsive */
@@ -33,6 +32,7 @@
   max-width: 1000px;
   margin: 10px 0 10px;
   padding: 10px;
+  max-width: 100%;
 }
 .articulo div {
   font-size: 14pt;
@@ -51,12 +51,6 @@ h1 {
 h3 {
   font-size: 12pt;
   letter-spacing: 0.5px;
-}
-.articulo img {
-  width: 100%;
-  aspect-ratio: 4/2;
-  height: auto;
-  box-shadow: 0px 0px 10px #e69c11;
 }
 /* end contenedor */
 /*Banner*/
@@ -88,7 +82,7 @@ h3 {
   padding-top: 0;
 }
 /* src/app/quote/quote.component.css */
-blockquote {
+/* blockquote {
   font-style: italic;
   color: #555;
   margin: 20px 40px;
@@ -108,7 +102,7 @@ blockquote cite {
 cite {
   font-style: italic;
   color: #555;
-}
+} */
 /* Estilos personalizados para mat-card-title */
 .title-news {
   margin-top: 5px;
