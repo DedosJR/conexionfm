@@ -53,4 +53,7 @@ export class ContactComponent {
   enviarFormulario() {
     alert(this.msg);
   }
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

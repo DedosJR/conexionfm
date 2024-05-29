@@ -47,4 +47,7 @@ export class SheduleComponent {
     const scrollY = window.scrollY;
     this.isScrolled = scrollY > 200; // 200 es la posición de desplazamiento a partir de la cual se oculta el encabezado
   }
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

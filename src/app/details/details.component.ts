@@ -1,13 +1,19 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { RouterOutlet, RouterLink, ActivatedRoute } from '@angular/router';
-import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
+import {
+  RouterOutlet,
+  RouterLink,
+  ActivatedRoute,
+  Params,
+} from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSidenav, MatSidenavContainer } from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { WordpressService } from '../wordpress.service';
-import { CommonModule, NgClass, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { format } from 'date-fns';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-details',
@@ -18,93 +24,84 @@ import { format } from 'date-fns';
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    MatSidenav,
-    MatToolbar,
-    MatSidenavContainer,
+    MatSidenavModule,
     CommonModule,
-    NgClass,
   ],
   templateUrl: './details.component.html',
-  styleUrl: './details.component.css',
+  styleUrls: ['./details.component.css'],
   providers: [WordpressService],
 })
 export class DetailsComponent implements OnInit {
-  postId: number = -1; //variable para el id del articulo
-  postSlug: any; //variable para el slug de la noticia
-  post: any; //Variable para almacenar los detalles del artículo
-  bc: any = []; //variable para el almacenamiento de la categoria de BC
+  postId: number = -1;
+  postSlug: string = '';
+  post: any;
+  bc: any[] = [];
   isScrolled = false;
   article: any = [];
+  sidenavOpen = false;
+
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
     private wordpressService: WordpressService
   ) {}
 
-  async ngOnInit(): Promise<void> {
-    //Conexion al servicio para traer los ultmos 10 post
+  ngOnInit(): void {
     this.wordpressService.getPostsnewsArticle().subscribe((article) => {
       this.article = article;
-      //console.log(posts);
     });
-    //categorias
+
     this.wordpressService.getPostBc(2).subscribe((bc) => {
       this.bc = bc;
-      //console.log(bc);
     });
-    //Mostrar detalles de las noticias dentro del post
-    this.route.params.subscribe(async (params) => {
-      this.postId = +params['id'];
-      this.postSlug = params['slug'];
-      await this.loadPostDetails();
-    });
+
+    this.route.params
+      .pipe(
+        switchMap((params: Params) => {
+          this.postId = +params['id'];
+          this.postSlug = params['slug'];
+          return this.loadPostDetails();
+        })
+      )
+      .subscribe(
+        (post) => (this.post = post),
+        (error) =>
+          console.error('Error al cargar los detalles del artículo', error)
+      );
   }
 
-  async loadPostDetails() {
-    try {
-      this.post = await this.http
-        .get<any>(
-          `https://panel.conexionfm.com/wp-json/wp/v2/posts/${this.postId}`
-        )
-        .toPromise();
-    } catch (error) {
-      console.error('Error al cargar los detalles del artículo', error);
-    }
+  loadPostDetails() {
+    return this.http.get<any>(
+      `https://panel.conexionfm.com/wp-json/wp/v2/posts/${this.postId}`
+    );
   }
-  //Mostrar las imagenes de los post
+
   getFeaturedMediaUrl(post: any): string | undefined {
-    if (
-      post?._embedded &&
-      post._embedded['wp:featuredmedia'] &&
-      post._embedded['wp:featuredmedia'][0].source_url
-    ) {
+    if (post?._embedded?.['wp:featuredmedia']?.[0]?.source_url) {
       return post._embedded['wp:featuredmedia'][0].source_url;
     }
     return undefined;
   }
 
-  //sinedav
-  sidenavOpen = false;
   openSidenav() {
     this.sidenavOpen = true;
   }
-  //Cerrar la ventana del sidenav
+
   closeSidenav() {
     this.sidenavOpen = false;
   }
-  //Scroll para el nav se deslice hacia arriba
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    const scrollY = window.scrollY;
-    this.isScrolled = scrollY > 200; // 200 es la posición de desplazamiento a partir de la cual se oculta el encabezado
+    this.isScrolled = window.scrollY > 200;
   }
+
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-  //Mostrar la fecha de las publicaciones en las entradas
+
   formatDate(dateString: string): string {
     const date = new Date(dateString);
-    return format(date, " 'Publlicado ' d - MMMM - yyyy ");
-    //return 'Publicado: ' + format(date, "'Fecha' yyyy-MM-dd  'Hora' HH:mm:ss");
+    return format(date, " 'Publicado ' d - MMMM - yyyy ");
   }
 }
