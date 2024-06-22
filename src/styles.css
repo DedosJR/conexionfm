@@ -93,7 +93,7 @@ header {
   top: 0;
   z-index: 1000;
   transition: top 1.3s;
-  animation-duration: 3s;
+  animation-duration: 1s;
 }
 .hide-header {
   top: -93px; /* La altura del encabezado */
