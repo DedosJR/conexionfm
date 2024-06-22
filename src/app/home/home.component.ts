@@ -15,7 +15,7 @@ import {
   MatCardModule,
 } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { WordpressService } from '../wordpress.service';
 import { CommonModule, NgClass, ViewportScroller } from '@angular/common';
 
@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit {
   destacado: any = [];
   isScrolled = false;
   bc: any = [];
+  bcpost: any = [];
   deportes: any = [];
   deportesname: any = [];
   deportespost: any = [];
@@ -61,6 +62,14 @@ export class HomeComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         this.viewportScroller.scrollToPosition([0, 0]);
       }
+    });
+  }
+  // Método para deshabilitar caché
+  private getHeaders() {
+    return new HttpHeaders({
+      'Cache-Control': 'no-cache',
+      Pragma: 'no-cache',
+      Expires: '0',
     });
   }
 
@@ -80,7 +89,10 @@ export class HomeComponent implements OnInit {
       this.bc = bc;
       // console.log(bc);
     });
-
+    // traer post de baja california para slide
+    this.wordpressService.getPostBccarrousel(2).subscribe((bcpost) => {
+      this.bcpost = bcpost;
+    });
     //deportes para mostrar nombre de categoria
     this.wordpressService.getPostDeportes(4).subscribe((deportesname) => {
       this.deportesname = deportesname;

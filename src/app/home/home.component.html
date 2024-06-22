@@ -55,7 +55,7 @@
       </div>
       }
       <!-- Nota 3 -->
-      @for (post of posts; track post.id) {
+      @for (post of bcpost; track post.id) {
       <div class="carousel-item">
         <a routerLink="/details/{{ post.id }}/{{ post.slug }}"
           ><img [src]="post.featured_image" alt="Imagen del post"
@@ -114,11 +114,15 @@
           <a routerLink="/details/{{ destaca.id }}/{{ destaca.slug }}"
             ><img [src]="destaca.featured_image" alt="Imagen del post"
           /></a>
+
           <mat-card-title>
             <a routerLink="/details/{{ destaca.id }}/{{ destaca.slug }}"
               ><h2>{{ destaca.title.rendered }}</h2></a
             >
           </mat-card-title>
+          <!-- <mat-card-footer
+            ><h5 class="categoriacard">{{ bc.name }}</h5></mat-card-footer
+          > -->
         </mat-card>
       </div>
     </div>
@@ -148,6 +152,11 @@
             ><h2>{{ Deporte.title.rendered }}</h2></a
           >
         </mat-card-title>
+        <!-- <mat-card-footer
+          ><h5 class="categoriacard">
+            {{ deportesname.name }}
+          </h5></mat-card-footer
+        > -->
       </mat-card>
     </div>
   </div>

@@ -18,7 +18,7 @@
   max-width: 100%;
   max-height: auto;
   width: 100%;
-  aspect-ratio: 4/2;
+  aspect-ratio: 16/9;
   height: auto;
   box-shadow: 0px 0px 10px #e69c11;
 }
@@ -113,6 +113,9 @@ cite {
   text-decoration: none;
   color: inherit;
 }
+.card {
+  box-shadow: 0px 0px 3px var(--color-gray);
+}
 /* Elimina la línea de enlace y el efecto de hover en naranja */
 .card a {
   text-decoration: none;
@@ -121,7 +124,8 @@ cite {
 .card-body h4 {
   margin-top: 5px;
   text-align: justify;
-  font-size: 10pt;
+  font-size: 12pt;
+  font-weight: 500;
 }
 .col {
   width: 100%;

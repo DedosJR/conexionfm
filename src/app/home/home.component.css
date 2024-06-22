@@ -228,3 +228,10 @@ mat-card-title a:hover {
 .carousel-indicators button {
   color: var(--color-orange);
 }
+.categoriacard {
+  color: var(--color-orange);
+  padding: 5px;
+  padding-bottom: 15px;
+  font-size: 9pt;
+  margin: 0 auto;
+}
