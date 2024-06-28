@@ -28,15 +28,15 @@
         aria-label="Slide 3"
       ></button>
     </div>
-    @for (post of posts; track post.id) {
+    @for (destacado of destacadoPost; track destacado.id) {
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <a routerLink="/details/{{ post.id }}/{{ post.slug }}"
-          ><img [src]="post.featured_image" alt="Imagen del post"
+        <a routerLink="/details/{{ destacado.id }}/{{ destacado.slug }}"
+          ><img [src]="destacado.featured_image" alt="Imagen del post"
         /></a>
         <div class="carousel-caption d-none d-md-block">
-          <a routerLink="/details/{{ post.id }}/{{ post.slug }}"
-            ><h1>{{ post.title.rendered }}</h1></a
+          <a routerLink="/details/{{ destacado.id }}/{{ destacado.slug }}"
+            ><h1>{{ destacado.title.rendered }}</h1></a
           >
         </div>
       </div>
@@ -90,7 +90,7 @@
   </div>
   <div class="banner-destacado" align="center">
     <a routerLink="/contact">
-      <img src="assets/Banner disponible 350 X 510.jpg" alt="publicidad" />
+      <img src="assets/Hasta-La-Luna.jpg" alt="publicidad" />
     </a>
   </div>
 </section>

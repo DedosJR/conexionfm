@@ -1,5 +1,4 @@
 :root {
-  /* color-scheme: light dark; */
   --color-white: #ffffff;
   --color-gray-dark: #333;
   --color-gray: #c6c6c6;
@@ -7,72 +6,119 @@
   --color-orange: #e69c11;
   --color-black: #000000;
 }
+
 /* medidas responsive */
 @media (max-width: 768px) {
   body {
     padding: 0;
     margin: 0;
   }
+
+  .row {
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  .article {
+    margin-top: 5px;
+    padding: 5px;
+    width: 100%;
+  }
+  article h1 {
+    text-align: justify;
+    font-size: 16pt;
+  }
+  article h3 {
+    font-size: 10pt;
+    text-align: justify;
+  }
+  .col {
+    width: 100%;
+  }
+  .title-reciente h2 {
+    text-align: center;
+    font-weight: 600;
+  }
+  .post-content div {
+    font-size: 12pt;
+  }
 }
+/* end responsive */
+
+/* contenido */
 .articulo img {
-  max-width: 100%;
-  max-height: auto;
+  max-width: 850px;
   width: 100%;
   aspect-ratio: 16/9;
   height: auto;
   box-shadow: 0px 0px 10px #e69c11;
 }
 
-/* end responsive */
 /* contenedor */
 .articulo {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
   max-width: 1000px;
-  margin: 10px 0 10px;
-  padding: 10px;
-  max-width: 100%;
+  margin: 5px 0;
+  padding: 5px;
 }
-.articulo div {
-  font-size: 14pt;
+
+.post-content {
+  width: 100%;
+  max-width: 1000px;
+  font-size: 13pt;
   line-height: 2;
   text-align: justify;
   margin-top: 20px;
   margin-bottom: 20px;
   letter-spacing: 0.5px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
+
 h1 {
-  font-size: 26pt;
+  text-align: justify;
+  font-size: 24pt;
   font-weight: bold;
   letter-spacing: 0.5px;
   line-height: 1.2;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
+
 h3 {
-  font-size: 12pt;
+  font-size: 13pt;
   letter-spacing: 0.5px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
+
 /* end contenedor */
-/*Banner*/
+
+/* Banner */
 .col-md-4 {
   padding: auto;
   margin: 0;
   margin-top: 28px;
 }
+
 .col-md-4 a img {
   margin-bottom: 20px;
   aspect-ratio: 1/1;
 }
+
 .fecha-user {
-  /*border-top: solid 1px var(--color-black);*/
   border-bottom: solid 1px var(--color-black);
 }
+
 .fecha-user h4 {
   font-weight: 500;
   margin: 0 auto;
   padding: 10px;
   text-align: end;
 }
+
 .banner-lateral {
   flex: 0 0 auto;
   width: 100%;
@@ -81,29 +127,7 @@ h3 {
   padding: 10px;
   padding-top: 0;
 }
-/* src/app/quote/quote.component.css */
-/* blockquote {
-  font-style: italic;
-  color: #555;
-  margin: 20px 40px;
-  padding: 10px 20px;
-  border-left: 5px solid #ccc;
-  background-color: #f9f9f9;
-}
 
-blockquote cite {
-  display: block;
-  text-align: right;
-  font-style: normal;
-  color: #333;
-  margin-top: 10px;
-}
-
-cite {
-  font-style: italic;
-  color: #555;
-} */
-/* Estilos personalizados para mat-card-title */
 .title-news {
   margin-top: 5px;
   text-transform: capitalize;
@@ -113,40 +137,46 @@ cite {
   text-decoration: none;
   color: inherit;
 }
+
 .card {
   box-shadow: 0px 0px 3px var(--color-gray);
 }
-/* Elimina la línea de enlace y el efecto de hover en naranja */
+
 .card a {
   text-decoration: none;
   color: inherit;
 }
+
 .card-body h4 {
   margin-top: 5px;
   text-align: justify;
   font-size: 12pt;
   font-weight: 500;
 }
+
 .col {
   width: 100%;
   margin-bottom: 5px;
 }
+
 .card a:hover {
   color: var(--color-orange);
   transition: width 3s;
   text-decoration: underline;
 }
+
 .article {
   margin-top: 10px;
   padding: 10px;
 }
+
 .title-reciente {
-  text-align: left;
+  font-size: 16pt;
+  text-align: center;
   margin-top: 15px;
   padding: 5px;
   font-family: Arial, Helvetica, sans-serif;
-  font-family: inherit;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.1;
   margin-bottom: 10px;
   border-bottom: solid 1px var(--color-orange);

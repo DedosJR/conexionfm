@@ -295,7 +295,8 @@ svg {
 section {
   display: flex;
   flex-wrap: wrap;
-  width: 1390px;
+  width: 100%;
+  max-width: 1390px;
   margin: 10px auto;
   padding: 0;
   padding-top: 175px;

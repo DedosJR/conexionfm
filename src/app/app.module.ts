@@ -14,7 +14,7 @@ import { SafeHtmlPipe } from '../app/SafeHtmlPipe';
 import { WordpressService } from './wordpress.service';
 
 @NgModule({
-  declarations: [SidebarComponent, SafeHtmlPipe, AppComponent],
+  declarations: [SidebarComponent, SafeHtmlPipe],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

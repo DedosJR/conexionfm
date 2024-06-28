@@ -4,26 +4,30 @@
     <div class="row">
       <div class="col-md-8">
         <article class="articulo">
-          @if(post ){
+          @if(post) {
           <!-- Cabeza de la noticia -->
           <h1>{{ post.title.rendered }}</h1>
           <!-- Extracto de la noticia -->
           <h3 [innerHTML]="post.excerpt.rendered"></h3>
-          <!-- Conetenido de la noticia -->
+          <!-- Contenido de la noticia -->
           <img [src]="post.featured_image" alt="Imagen del post" />
           <div class="fecha-user">
             <h4>{{ formatDate(post.date) }}</h4>
           </div>
-          <div [innerHTML]="post.content.rendered"></div>
+          <div class="post-content">
+            <div [innerHTML]="post.content.rendered"></div>
+          </div>
           }
         </article>
       </div>
       <!-- Banner -->
       <div class="banner-lateral" align="center">
         <a routerLink="/contact">
-          <img src="assets/Banner disponible 350 X 510.jpg" alt="publicidad" />
+          <img src="assets/Hasta-La-Luna.jpg" alt="publicidad" />
         </a>
-        <div><h2 class="title-reciente">Noticias recientes</h2></div>
+        <div>
+          <h2 class="title-reciente">Noticias recientes</h2>
+        </div>
         <div class="article">
           @for (Article of article; track article.id) {
           <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -39,7 +43,7 @@
                 <div class="card-body">
                   <a
                     class="title-news"
-                    routerLink="/details/ {{ Article.id }}/{{ Article.slug }}"
+                    routerLink="/details/{{ Article.id }}/{{ Article.slug }}"
                   >
                     <h4>{{ Article.title.rendered }}</h4>
                   </a>

@@ -20,6 +20,7 @@ export class WordpressService {
       Expires: '0',
     });
   }
+
   //Conexion  al portal de WP para carrousel
   getPosts(): Observable<any[]> {
     let params = new HttpParams().set('per_page', '1').set('_embed', '');
@@ -42,6 +43,7 @@ export class WordpressService {
       .set('_embed', '');
     return this.http.get<any[]>(this.apiDestacado, { params });
   }
+
   //traer nombre de categoria bc
   getPostBc(categoryId: number): Observable<any> {
     const url = `${this.Bc}/${categoryId}`;
@@ -49,6 +51,14 @@ export class WordpressService {
   }
   //Baja California patra mostrar en carrousel
   getPostBccarrousel(categoryId = 2): Observable<any[]> {
+    let params = new HttpParams()
+      .set('categories', categoryId.toString())
+      .set('per_page', '1')
+      .set('_embed', '');
+    return this.http.get<any[]>(this.apiDestacado, { params });
+  }
+  //destacado
+  getdestacado(categoryId = 3): Observable<any[]> {
     let params = new HttpParams()
       .set('categories', categoryId.toString())
       .set('per_page', '1')

@@ -15,7 +15,7 @@ import {
   MatCardModule,
 } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { CommonModule, NgClass } from '@angular/common';
 
 @Component({
@@ -25,9 +25,7 @@ import { CommonModule, NgClass } from '@angular/common';
     RouterOutlet,
     HomeComponent,
     AboutComponent,
-    DetailsComponent,
     ContactComponent,
-    NewsComponent,
     RouterLink,
     MatToolbarModule,
     MatButtonModule,
@@ -50,6 +48,15 @@ export class AppComponent {
   posts: any = [];
   isScrolled = false;
   sidenavOpen = false;
+
+  // Método para deshabilitar caché
+  private getHeaders() {
+    return new HttpHeaders({
+      'Cache-Control': 'no-cache',
+      Pragma: 'no-cache',
+      Expires: '0',
+    });
+  }
   //Realizar apertura del sidenav
   openSidenav() {
     this.sidenavOpen = true;

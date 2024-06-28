@@ -15,7 +15,7 @@ import {
   MatCardModule,
 } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { WordpressService } from '../wordpress.service';
 import { CommonModule, NgClass, ViewportScroller } from '@angular/common';
 
@@ -51,6 +51,7 @@ export class HomeComponent implements OnInit {
   deportes: any = [];
   deportesname: any = [];
   deportespost: any = [];
+  destacadoPost: any = [];
 
   constructor(
     private wordpressService: WordpressService,
@@ -62,14 +63,6 @@ export class HomeComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         this.viewportScroller.scrollToPosition([0, 0]);
       }
-    });
-  }
-  // Método para deshabilitar caché
-  private getHeaders() {
-    return new HttpHeaders({
-      'Cache-Control': 'no-cache',
-      Pragma: 'no-cache',
-      Expires: '0',
     });
   }
 
@@ -102,6 +95,10 @@ export class HomeComponent implements OnInit {
     this.wordpressService.getPostDeportespostSlide(4).subscribe((deportes) => {
       this.deportes = deportes;
       // console.log(bc);
+    });
+    //Destacado
+    this.wordpressService.getdestacado(3).subscribe((destacadoPost) => {
+      this.destacadoPost = destacadoPost;
     });
     //post
     this.wordpressService.getPostDeportespost().subscribe((deportespost) => {
