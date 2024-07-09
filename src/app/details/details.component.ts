@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { format } from 'date-fns';
 import { switchMap } from 'rxjs/operators';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-details',
@@ -43,7 +44,9 @@ export class DetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
-    private wordpressService: WordpressService
+    private wordpressService: WordpressService,
+    private metaService: Meta,
+    private titleService: Title
   ) {}
 
   ngOnInit(): void {
@@ -103,5 +106,19 @@ export class DetailsComponent implements OnInit {
   formatDate(dateString: string): string {
     const date = new Date(dateString);
     return format(date, " 'Publicado ' d - MMMM - yyyy ");
+  }
+  setMetaTags(post: any): void {
+    this.titleService.setTitle(post.title.rendered);
+    this.metaService.addTags([
+      { name: 'description', content: post.excerpt.rendered },
+      { property: 'og:title', content: post.title.rendered },
+      { property: 'og:description', content: post.excerpt.rendered },
+      {
+        property: 'og:image',
+        content: post._embedded['post.featured_image'][0].source_url,
+      },
+      { property: 'og:url', content: window.location.href },
+      { property: 'og:type', content: 'article' },
+    ]);
   }
 }

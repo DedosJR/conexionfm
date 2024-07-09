@@ -1,6 +1,5 @@
 /* styles.css */
 @import "bootstrap/dist/css/bootstrap.min.css";
-
 /* You can add global styles to this file, and also import other style files */
 :root {
   /* color-scheme: light dark; */
@@ -56,6 +55,7 @@
   }
 }
 /*estilos globales de pagina*/
+
 html,
 body {
   padding: 0;
@@ -108,17 +108,7 @@ header {
   z-index: 1000;
   transition: top 2.3s;
   animation-duration: 5s;
-  opacity: 90%;
-}
-#sidenav {
-  display: flex;
-  width: 300px;
-  height: auto;
-  background-color: var(--color-orange);
-  position: fixed;
-  z-index: 1000;
   opacity: 95%;
-  justify-content: space-between;
 }
 
 #footer {
@@ -142,12 +132,7 @@ header {
   right: 0;
   background-color: var(--color-orange);
 }
-.container-1 ul {
-  position: fixed;
-  margin: 0 auto;
-  text-decoration: none;
-  background-color: var(--color-orange);
-}
+
 .close {
   margin-left: 140px;
   top: 300px;
@@ -155,7 +140,7 @@ header {
 }
 .close:hover {
   color: var(--color-orange);
-  background-color: var(--color-black);
+  background-color: var(--color-dark);
   animation-delay: 10s;
 }
 .footer-div {
@@ -213,7 +198,6 @@ svg {
   display: flex;
   flex-direction: row;
   margin: 0 auto;
-  text-decoration: none;
 }
 .nav-menu ul {
   list-style: none;
@@ -246,14 +230,24 @@ svg {
   font-weight: bold; /* O cualquier otro estilo que prefieras */
 }
 /* Nav side */
+#sidenav {
+  display: flex;
+  width: 300px;
+  height: auto;
+  position: fixed;
+  z-index: 1000;
+  opacity: 95%;
+  background-color: var(--color-dark);
+}
+
 .nav {
   font-size: 18pt;
   padding-bottom: 30px;
   display: block;
   flex-direction: row;
   margin: 0 auto;
-  text-decoration: none;
   justify-content: center;
+  background-color: var(--color-dark);
 }
 .nav ul {
   list-style: none;
@@ -263,7 +257,8 @@ svg {
 .nav li {
   padding-top: 20px;
   list-style: none;
-  margin-right: 10px; /* Agrega espacio entre enlaces */
+  margin-right: 10px;
+  margin-left: 15px; /* Agrega espacio entre enlaces */
 }
 .nav li:last-child {
   margin-right: 0; /* Elimina el margen del último elemento */
@@ -277,8 +272,8 @@ svg {
 
 .nav a:hover {
   border-radius: 5px;
-  box-shadow: 2px 2px 8px var(--color-dark);
-  color: var(--color-dark);
+  box-shadow: 2px 2px 8px var(--color-orange);
+  color: var(--color-orange);
   transition: 0.5s;
 
   /* box-shadow: 0px 0px 10px #333;

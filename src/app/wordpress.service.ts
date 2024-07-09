@@ -86,4 +86,9 @@ export class WordpressService {
     const url = `${this.Deportes}/${categoryId}`;
     return this.http.get<any>(url);
   }
+  // Nuevo método para obtener los detalles de una entrada específica
+  getPostById(postId: number): Observable<any> {
+    const url = `${this.apiUrl}/${postId}`;
+    return this.http.get<any>(url, { headers: this.getHeaders() });
+  }
 }

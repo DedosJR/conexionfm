@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
     // Subscribe to route events to scroll to top on navigation end
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.viewportScroller.scrollToPosition([0, 0]);
+        this.viewportScroller.scrollToPosition([200, 0]);
       }
     });
   }
@@ -122,6 +122,6 @@ export class HomeComponent implements OnInit {
     this.isScrolled = scrollY > 200; // 200 es la posición de desplazamiento a partir de la cual se oculta el encabezado
   }
   scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 200, behavior: 'smooth' });
   }
 }

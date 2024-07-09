@@ -1,5 +1,11 @@
 import { Component, HostListener } from '@angular/core';
-import { RouterOutlet, RouterLink, RouterModule } from '@angular/router';
+import {
+  RouterOutlet,
+  RouterLink,
+  RouterModule,
+  NavigationEnd,
+  Router,
+} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { DetailsComponent } from './details/details.component';
@@ -16,7 +22,7 @@ import {
 } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule, HttpHeaders } from '@angular/common/http';
-import { CommonModule, NgClass } from '@angular/common';
+import { CommonModule, NgClass, ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -57,6 +63,17 @@ export class AppComponent {
       Expires: '0',
     });
   }
+  constructor(
+    private router: Router,
+    private viewportScroller: ViewportScroller
+  ) {
+    // Subscribe to route events to scroll to top on navigation end
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.viewportScroller.scrollToPosition([200, 0]);
+      }
+    });
+  }
   //Realizar apertura del sidenav
   openSidenav() {
     this.sidenavOpen = true;
@@ -71,7 +88,9 @@ export class AppComponent {
     const scrollY = window.scrollY;
     this.isScrolled = scrollY > 200; // 200 es la posición de desplazamiento a partir de la cual se oculta el encabezado
   }
+
   scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 200, behavior: 'smooth' });
   }
+  // Subscribe to route events to scroll to top on navigation end
 }
