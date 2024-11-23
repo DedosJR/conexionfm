@@ -1,32 +1,21 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
-import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
+import { RouterLink } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSidenav } from '@angular/material/sidenav';
-import { HomeComponent } from '../home/home.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatCard, MatCardFooter, MatCardImage } from '@angular/material/card';
 import { WordpressService } from '../wordpress.service';
-import { CommonModule, NgClass } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-news',
   standalone: true,
   imports: [
-    HomeComponent,
-    RouterOutlet,
     RouterLink,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
-    MatCardImage,
-    MatCardFooter,
-    MatSidenav,
-    MatToolbar,
-    MatCard,
-    NgClass,
     CommonModule,
   ],
   templateUrl: './news.component.html',

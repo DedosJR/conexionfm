@@ -1,10 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import {
-  RouterOutlet,
-  RouterLink,
-  ActivatedRoute,
-  Params,
-} from '@angular/router';
+import { RouterLink, ActivatedRoute, Params } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -20,7 +15,6 @@ import { Meta, Title } from '@angular/platform-browser';
   selector: 'app-details',
   standalone: true,
   imports: [
-    RouterOutlet,
     RouterLink,
     MatToolbarModule,
     MatButtonModule,

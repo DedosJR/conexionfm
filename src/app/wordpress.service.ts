@@ -6,89 +6,82 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class WordpressService {
-  private Bc = 'https://panel.conexionfm.com/wp-json/wp/v2/categories';
+  // API REST de WordPress variables privadas//
   private apiUrl = 'https://panel.conexionfm.com/wp-json/wp/v2/posts';
-  private apiDestacado = 'https://panel.conexionfm.com/wp-json/wp/v2/posts';
   private Deportes = 'https://panel.conexionfm.com/wp-json/wp/v2/categories';
 
   constructor(private http: HttpClient) {}
-  // Método para deshabilitar caché
-  private getHeaders() {
-    return new HttpHeaders({
-      'Cache-Control': 'no-cache',
-      Pragma: 'no-cache',
-      Expires: '0',
-    });
-  }
+  // Método para deshabilitar caché//
 
-  //Conexion  al portal de WP para carrousel
+  //Conexion  al portal de WP para carrousel//
   getPosts(): Observable<any[]> {
     let params = new HttpParams().set('per_page', '1').set('_embed', '');
     return this.http.get<any[]>(this.apiUrl, { params });
   }
-  //Conexion  al portal de WP para la sección de news últimos 10
-  getPostsnews(): Observable<any[]> {
-    let params = new HttpParams().set('per_page', '10').set('_embed', '');
-    return this.http.get<any[]>(this.apiUrl, { params });
-  }
+  //Artículo recomendado//
   getPostsnewsArticle(): Observable<any[]> {
     let params = new HttpParams().set('per_page', '3').set('_embed', '');
     return this.http.get<any[]>(this.apiUrl, { params });
   }
-  // Conexion al portal de wp para traer últimos 4 post de la categoría de BC
+  //Sección de news últimos 10//
+  getPostsnews(): Observable<any[]> {
+    let params = new HttpParams().set('per_page', '10').set('_embed', '');
+    return this.http.get<any[]>(this.apiUrl, { params });
+  }
+  //Últimos 4 post de la categoría de BC//
   getPostsd(categoryId = 2): Observable<any[]> {
     let params = new HttpParams()
       .set('categories', categoryId.toString())
       .set('per_page', '4')
       .set('_embed', '');
-    return this.http.get<any[]>(this.apiDestacado, { params });
+    return this.http.get<any[]>(this.apiUrl, { params });
   }
 
-  //traer nombre de categoria bc
+  //traer nombre de categoria bc//
   getPostBc(categoryId: number): Observable<any> {
-    const url = `${this.Bc}/${categoryId}`;
+    const url = `${this.Deportes}/${categoryId}`;
     return this.http.get<any>(url);
   }
-  //Baja California patra mostrar en carrousel
+  //Baja California patra mostrar en carrousel//
   getPostBccarrousel(categoryId = 2): Observable<any[]> {
     let params = new HttpParams()
       .set('categories', categoryId.toString())
       .set('per_page', '1')
       .set('_embed', '');
-    return this.http.get<any[]>(this.apiDestacado, { params });
+    return this.http.get<any[]>(this.apiUrl, { params });
   }
-  //destacado
+  //Destacado//
   getdestacado(categoryId = 3): Observable<any[]> {
     let params = new HttpParams()
       .set('categories', categoryId.toString())
       .set('per_page', '1')
       .set('_embed', '');
-    return this.http.get<any[]>(this.apiDestacado, { params });
+    return this.http.get<any[]>(this.apiUrl, { params });
   }
-  //deportes para mostrar carrousel
+  //Deportes para mostrar carrousel//
   getPostDeportespostSlide(categoryId = 4): Observable<any[]> {
     let params = new HttpParams()
       .set('categories', categoryId.toString())
       .set('per_page', '1')
       .set('_embed', '');
-    return this.http.get<any[]>(this.apiDestacado, { params });
+    return this.http.get<any[]>(this.apiUrl, { params });
   }
-  //Categoria de deportes para mosrtrar cards
+  //Categoria de deportes para mosrtrar cards//
   getPostDeportespost(categoryId = 4): Observable<any[]> {
     let params = new HttpParams()
       .set('categories', categoryId.toString())
       .set('per_page', '4')
       .set('_embed', '');
-    return this.http.get<any[]>(this.apiDestacado, { params });
+    return this.http.get<any[]>(this.apiUrl, { params });
   }
-  //Deportes para mostrar nombre de categoria
+  //Deportes para mostrar nombre de categoria//
   getPostDeportes(categoryId: number): Observable<any> {
     const url = `${this.Deportes}/${categoryId}`;
     return this.http.get<any>(url);
   }
-  // Nuevo método para obtener los detalles de una entrada específica
+  // Nuevo método para obtener los detalles de una entrada específica.//
   getPostById(postId: number): Observable<any> {
     const url = `${this.apiUrl}/${postId}`;
-    return this.http.get<any>(url, { headers: this.getHeaders() });
+    return this.http.get<any>(url);
   }
 }

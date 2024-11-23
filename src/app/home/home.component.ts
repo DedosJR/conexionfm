@@ -1,29 +1,19 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import {
-  Router,
-  NavigationEnd,
-  RouterOutlet,
-  RouterLink,
-} from '@angular/router';
+import { Router, NavigationEnd, RouterLink } from '@angular/router';
+import { CommonModule, ViewportScroller } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import {
-  MatCardFooter,
-  MatCardImage,
-  MatCardModule,
-} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
 import { WordpressService } from '../wordpress.service';
-import { CommonModule, NgClass, ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    RouterOutlet,
     RouterLink,
     MatToolbarModule,
     MatButtonModule,
@@ -32,9 +22,6 @@ import { CommonModule, NgClass, ViewportScroller } from '@angular/common';
     MatCardModule,
     MatGridListModule,
     HttpClientModule,
-    MatCardImage,
-    MatCardFooter,
-    NgClass,
     CommonModule,
   ],
   templateUrl: './home.component.html',
@@ -52,6 +39,7 @@ export class HomeComponent implements OnInit {
   deportesname: any = [];
   deportespost: any = [];
   destacadoPost: any = [];
+  programas: any = [];
 
   constructor(
     private wordpressService: WordpressService,
@@ -61,27 +49,39 @@ export class HomeComponent implements OnInit {
     // Subscribe to route events to scroll to top on navigation end
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.viewportScroller.scrollToPosition([200, 0]);
+        this.viewportScroller.scrollToPosition([300, 0]);
       }
     });
   }
+  //Mostrar programas
+  postsprogramas(): void {
+    this.programas = [
+      'assets/Las-Noticias.jpg',
+      'assets/Los-Pillos.jpg',
+      'assets/Voces-Ecologicas.jpg',
+      'assets/Enlazate-a-la-Vida.jpg',
+    ];
+  }
 
   ngOnInit(): void {
-    //Conexion al servicio para traer los ultmos 10 post
+    //Mostrar programas
+    this.postsprogramas();
+    //Suscripción al servicio para traer los últimos 10 post en general//
     this.wordpressService.getPosts().subscribe((posts) => {
       this.posts = posts;
       //console.log(posts);
+    });
+    //Suscripción al servicio para traer último post de la categoría de BC//
+    this.wordpressService.getPostBc(2).subscribe((bc) => {
+      this.bc = bc;
+      //console.log(bc);
     });
     //Conexion al servicio para traer los 4 post de categoria BC al destacado
     this.wordpressService.getPostsd().subscribe((destacado) => {
       this.destacado = destacado;
       //console.log(destacado);
     });
-    //Conexion al servicio para traer ultimo post de la categoria de BC
-    this.wordpressService.getPostBc(2).subscribe((bc) => {
-      this.bc = bc;
-      // console.log(bc);
-    });
+
     // traer post de baja california para slide
     this.wordpressService.getPostBccarrousel(2).subscribe((bcpost) => {
       this.bcpost = bcpost;
@@ -89,12 +89,12 @@ export class HomeComponent implements OnInit {
     //deportes para mostrar nombre de categoria
     this.wordpressService.getPostDeportes(4).subscribe((deportesname) => {
       this.deportesname = deportesname;
-      // console.log(bc);
+      //console.log(deportesname);
     });
     //deportes
     this.wordpressService.getPostDeportespostSlide(4).subscribe((deportes) => {
       this.deportes = deportes;
-      // console.log(bc);
+      //console.log(deportes);
     });
     //Destacado
     this.wordpressService.getdestacado(3).subscribe((destacadoPost) => {
@@ -103,7 +103,7 @@ export class HomeComponent implements OnInit {
     //post
     this.wordpressService.getPostDeportespost().subscribe((deportespost) => {
       this.deportespost = deportespost;
-      //console.log(destacado);
+      //console.log(deportespost);
     });
   }
 

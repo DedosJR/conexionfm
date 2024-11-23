@@ -90,9 +90,26 @@
   </div>
   <div class="banner-destacado" align="center">
     <a routerLink="/contact">
-      <img src="assets/Banner-350 X 510.jpg" alt="publicidad" />
+      <img src="assets/Banner-350 X 510.jpg" alt="Publicidad" />
     </a>
   </div>
+</section>
+<!-- programas -->
+<div class="container">
+  <div class="row">
+    <div class="title-cat">
+      <a><h1 class="categoria">Programación</h1></a>
+    </div>
+  </div>
+</div>
+<section class="content">
+  @for(programa of programas; track programa.id){
+  <div class="grid">
+    <div class="post-card">
+      <a><img [src]="programa" alt="Programas" /></a>
+    </div>
+  </div>
+  }
 </section>
 <!-- Mat card posts -->
 <div class="container">
@@ -120,9 +137,6 @@
               ><h2>{{ destaca.title.rendered }}</h2></a
             >
           </mat-card-title>
-          <!-- <mat-card-footer
-            ><h5 class="categoriacard">{{ bc.name }}</h5></mat-card-footer
-          > -->
         </mat-card>
       </div>
     </div>
@@ -152,14 +166,17 @@
             ><h2>{{ Deporte.title.rendered }}</h2></a
           >
         </mat-card-title>
-        <!-- <mat-card-footer
-          ><h5 class="categoriacard">
-            {{ deportesname.name }}
-          </h5></mat-card-footer
-        > -->
       </mat-card>
     </div>
   </div>
   }
 </section>
-<router-outlet></router-outlet>
+<!-- <mat-card-footer
+          ><h5 class="categoriacard">
+            {{ deportesname.name }}
+          </h5></mat-card-footer
+        > -->
+
+<!-- <mat-card-footer
+            ><h5 class="categoriacard">{{ bc.name }}</h5></mat-card-footer
+          > -->

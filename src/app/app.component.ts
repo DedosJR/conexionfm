@@ -23,6 +23,7 @@ import {
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { CommonModule, NgClass, ViewportScroller } from '@angular/common';
+import { RadioPlayerComponent } from './radio/radio.component';
 
 @Component({
   selector: 'app-root',
@@ -45,6 +46,7 @@ import { CommonModule, NgClass, ViewportScroller } from '@angular/common';
     NgClass,
     CommonModule,
     RouterModule,
+    RadioPlayerComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
