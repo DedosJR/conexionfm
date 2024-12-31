@@ -56,10 +56,10 @@ export class HomeComponent implements OnInit {
   //Mostrar programas
   postsprogramas(): void {
     this.programas = [
-      'assets/Las-Noticias.jpg',
-      'assets/Los-Pillos.jpg',
-      'assets/Voces-Ecologicas.jpg',
-      'assets/Enlazate-a-la-Vida.jpg',
+      'assets/webp/Las-Noticias.webp',
+      'assets/webp/Los-Pillos.webp',
+      'assets/webp/Voces-Ecologicas.webp',
+      'assets/webp/Enlazate-a-la-Vida.webp',
     ];
   }
 
