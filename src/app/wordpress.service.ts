@@ -85,3 +85,7 @@ export class WordpressService {
     return this.http.get<any>(url);
   }
 }
+/*Fichero para mostrar los servicios de la coneexion hacia el panel de control de wordpress de conexionFM, 
+con este archivo de servicios conectamos a la base de datos de la plataforma para consumir la API de WP y mostrar
+los post de las categorias, así como los nombres de las mismas.  
+ */
