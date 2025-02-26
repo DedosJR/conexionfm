@@ -30,13 +30,21 @@ export class NewsComponent implements OnInit {
   bc: any = [];
   deportes: any = [];
   deportespost: any = [];
+  loading: boolean = true;
 
   constructor(private wordpressService: WordpressService) {}
+
   ngOnInit(): void {
     //Conexion al servicio para traer los ultmos 10 post
-    this.wordpressService.getPostsnews().subscribe((posts) => {
-      this.posts = posts;
-      //console.log(posts);
+    this.wordpressService.getPostsnews().subscribe({
+      next: (posts) => {
+        this.posts = posts;
+        this.loading = false;
+      },
+      error: (error) => {
+        console.error('Error loading posts:', error);
+        this.loading = false;
+      }
     });
   }
   openSidenav() {

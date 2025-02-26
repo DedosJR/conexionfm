@@ -56,6 +56,9 @@ export class AppComponent {
   posts: any = [];
   isScrolled = false;
   sidenavOpen = false;
+  showBCSubmenu = false;
+  showDeportesSubmenu = false;
+  showNewsSubmenu = false;
 
   // Método para deshabilitar caché
   private getHeaders() {
@@ -92,7 +95,7 @@ export class AppComponent {
   }
 
   scrollToTop() {
-    window.scrollTo({ top: 200, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   // Subscribe to route events to scroll to top on navigation end
 }

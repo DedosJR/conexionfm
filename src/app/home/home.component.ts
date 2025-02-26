@@ -39,10 +39,9 @@ export class HomeComponent implements OnInit {
   deportesname: any = [];
   deportespost: any = [];
   destacadoPost: any = [];
-  programas: any = [];
+  programas: any[] = [];
 
-  constructor(
-    private wordpressService: WordpressService,
+  constructor( private wordpressService: WordpressService,
     private router: Router,
     private viewportScroller: ViewportScroller
   ) {
@@ -61,6 +60,9 @@ export class HomeComponent implements OnInit {
       'assets/webp/Voces-Ecologicas.webp',
       'assets/webp/Enlazate-a-la-Vida.webp',
     ];
+  }
+  onImageError(event: Event): void {
+    (event.target as HTMLImageElement).src = 'assets/placeholder.png'; // Imagen de respaldo
   }
 
   ngOnInit(): void {
@@ -123,5 +125,8 @@ export class HomeComponent implements OnInit {
   }
   scrollToTop() {
     window.scrollTo({ top: 200, behavior: 'smooth' });
+  }
+  trackByIndex(index: number, item: string): number {
+    return index;
   }
 }

@@ -112,18 +112,31 @@ header {
 }
 
 #footer {
-  top: 300px;
-  flex-wrap: wrap;
-  position: static;
+  position: relative;
   color: var(--color-white);
   display: flex;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
   height: auto;
-  margin: 0 auto;
-  margin-bottom: 150px;
+  min-height: 200px;
   background-color: var(--color-dark);
+  margin-top: auto;
+  padding-bottom: 150px; /* Space for the music player */
+}
+
+/* Add these new styles */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+router-outlet {
+  flex: 1;
+}
+
+section {
+  min-height: calc(100vh - 475px); /* Adjust based on header + footer + player height */
 }
 .container-1 {
   position: absolute;
@@ -206,7 +219,7 @@ svg {
   padding: 0;
 }
 .nav-menu li {
-  padding-top: 0;
+  padding-top: 12px;
   list-style: none;
   margin-right: 10px; /* Agrega espacio entre enlaces */
 }

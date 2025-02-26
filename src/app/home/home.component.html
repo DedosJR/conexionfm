@@ -106,7 +106,7 @@
   @for(programa of programas; track programa.id){
   <div class="grid">
     <div class="post-card">
-      <a><img [src]="programa" alt="Programas" /></a>
+      <a><img [src]="programa" (error)="onImageError($event)" alt="Programas" /></a>
     </div>
   </div>
   }
@@ -129,9 +129,7 @@
       <div class="post-card">
         <mat-card>
           <a routerLink="/details/{{ destaca.id }}/{{ destaca.slug }}"
-            ><img [src]="destaca.featured_image" alt="Imagen del post"
-          /></a>
-
+            ><img [src]="destaca.featured_image" (error)="onImageError($event)" alt="Imagen del post" /></a>
           <mat-card-title>
             <a routerLink="/details/{{ destaca.id }}/{{ destaca.slug }}"
               ><h2>{{ destaca.title.rendered }}</h2></a
@@ -159,8 +157,7 @@
     <div class="post-card">
       <mat-card>
         <a routerLink="/details/{{ Deporte.id }}/{{ Deporte.slug }}"
-          ><img [src]="Deporte.featured_image" alt="Imagen del post"
-        /></a>
+          ><img [src]="Deporte.featured_image" (error)="onImageError($event)" alt="Imagen del post" /></a>
         <mat-card-title>
           <a routerLink="/details/{{ Deporte.id }}/{{ Deporte.slug }}"
             ><h2>{{ Deporte.title.rendered }}</h2></a

@@ -60,3 +60,17 @@ h2 {
 img-news {
   aspect-ratio: 16/9;
 }
+.spinner-border.text-primary {
+  color: var(--color-orange) !important;
+  width: 3rem;
+  height: 3rem;
+}
+
+.d-flex.justify-content-center {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
