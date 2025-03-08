@@ -6,33 +6,23 @@ import {
   NavigationEnd,
   Router,
 } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { DetailsComponent } from './details/details.component';
-import { ContactComponent } from './contact/contact.component';
-import { NewsComponent } from './news/news.component';
+
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {
-  MatCardFooter,
-  MatCardImage,
   MatCardModule,
 } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { CommonModule, NgClass, ViewportScroller } from '@angular/common';
-import { RadioPlayerComponent } from './radio/radio.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
-    HomeComponent,
-    AboutComponent,
-    ContactComponent,
     RouterLink,
     MatToolbarModule,
     MatButtonModule,
@@ -41,12 +31,9 @@ import { RadioPlayerComponent } from './radio/radio.component';
     MatCardModule,
     MatGridListModule,
     HttpClientModule,
-    MatCardImage,
-    MatCardFooter,
     NgClass,
     CommonModule,
     RouterModule,
-    RadioPlayerComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -98,4 +85,10 @@ export class AppComponent {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   // Subscribe to route events to scroll to top on navigation end
+  // Add to your component class
+  showMobileNewsSubmenu = false;
+
+  toggleNewsSubmenu() {
+    this.showMobileNewsSubmenu = !this.showMobileNewsSubmenu;
+  }
 }

@@ -1,0 +1,81 @@
+:root {
+  /* color-scheme: light dark; */
+  --color-white: #ffffff;
+  --color-gray-dark: #333;
+  --color-gray: #e4e2e2;
+  --color-dark: #212121;
+  --color-orange: #e69c11;
+  --color-black: #000000;
+}
+@media screen and (max-width: 600px) {
+}
+/*
+Estilos generales de pagina
+*/
+/* Tamaño de titulos de cards */
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  font-size: 17pt;
+  color: inherit;
+}
+
+/* clase de imagenes de banner grid */
+.clas-banner {
+  top: 0;
+  padding: 0;
+  padding-left: 5px;
+}
+.img-banner {
+  border: solid 1px var(--color-black);
+  margin-bottom: 20px;
+  width: 380px;
+  height: 415px;
+}
+/* Estilos personalizados para mat-card-title */
+.title-news {
+  text-transform: capitalize;
+  font-variant: small-caps;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+/* Elimina la línea de enlace y el efecto de hover en naranja */
+.title-news a {
+  text-decoration: none;
+  color: inherit;
+}
+.title-news a:hover {
+  color: var(--color-orange);
+  transition: width 3s;
+  text-decoration: underline;
+}
+.txt-p {
+  font-size: 12pt;
+  text-decoration: none;
+}
+img-news {
+  aspect-ratio: 16/9;
+}
+.spinner-border.text-primary {
+  color: var(--color-orange) !important;
+  width: 3rem;
+  height: 3rem;
+}
+
+.d-flex.justify-content-center {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.visually-hidden
+{
+  display: none;
+  color: var(--color-orange);
+}

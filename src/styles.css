@@ -244,16 +244,35 @@ svg {
   font-weight: bold; /* O cualquier otro estilo que prefieras */
 }
 /* Nav side */
+/* Update sidenav styles */
 #sidenav {
-  display: flex;
-  width: 300px;
-  height: auto;
-  position: fixed;
-  z-index: 1000;
-  opacity: 95%;
-  background-color: var(--color-dark);
+  display: none; /* Hide by default */
 }
 
+/* Show sidenav only on mobile */
+@media screen and (max-width: 768px) {
+  #sidenav {
+    display: flex;
+    width: 300px;
+    height: auto;
+    position: fixed;
+    z-index: 1000;
+    opacity: 95%;
+    background-color: var(--color-dark);
+  }
+
+  /* Hide main menu on mobile */
+  .nav-menu {
+    display: none;
+  }
+}
+
+/* Hide menu button on desktop */
+@media screen and (min-width: 769px) {
+  mat-toolbar button[mat-icon-button] {
+    display: none;
+  }
+}
 .nav {
   font-size: 18pt;
   padding-bottom: 30px;

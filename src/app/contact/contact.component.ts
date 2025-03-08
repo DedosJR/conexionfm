@@ -1,33 +1,25 @@
 import { Component, HostListener } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import {  RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {
-  MatCardFooter,
-  MatCardImage,
+
   MatCardModule,
 } from '@angular/material/card';
-import { HomeComponent } from '../home/home.component';
 import { FormsModule } from '@angular/forms';
-import { NgClass } from '@angular/common';
 @Component({
   selector: 'app-contact',
   standalone: true,
   imports: [
-    HomeComponent,
-    RouterOutlet,
     RouterLink,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
     MatCardModule,
-    MatCardImage,
-    MatCardFooter,
     FormsModule,
-    NgClass,
   ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css',
@@ -51,7 +43,8 @@ export class ContactComponent {
   }
 
   enviarFormulario() {
-    alert(this.msg);
+    // Add your form submission logic here
+    console.log('Formulario enviado');
   }
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });

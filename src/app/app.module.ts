@@ -9,14 +9,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { SafeHtmlPipe } from '../app/SafeHtmlPipe';
 import { WordpressService } from './wordpress.service';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
-  declarations: [SidebarComponent, SafeHtmlPipe],
+  declarations: [SafeHtmlPipe],
   imports: [
     CommonModule,
     //BrowserModule,

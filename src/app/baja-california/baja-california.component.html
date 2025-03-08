@@ -1,0 +1,43 @@
+<!-- Inicio de pagina web -->
+<section>
+  @if (loading) {
+    <div class="d-flex justify-content-center my-4">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Cargando...</span>
+      </div>
+    </div>
+  } @else {
+    @for (post of posts; track post.id) {
+    <div class="card mb-3" style="max-width: 100%">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <div class="img-news">
+            <a routerLink="/details/{{ post.id }}/{{ post.slug }}">
+              <img [src]="post.featured_image" alt="Imagen del post" />
+            </a>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <div class="title-news">
+              <a routerLink="/details/{{ post.id }}/{{ post.slug }}">
+                <h2>{{ post.title.rendered }}</h2>
+              </a>
+            </div>
+            <div class="txt-p">
+              <div [innerHTML]="post.excerpt.rendered"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    }
+  }
+<!-- At the bottom of your posts list, before closing the section
+<div class="text-center mt-4 mb-4">
+  <button class="btn btn-primary" (click)="loadMore()">
+    Cargar más noticias
+  </button>
+</div>
+-->
+</section>

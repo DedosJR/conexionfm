@@ -1,42 +1,54 @@
-<!-- Section formulario y datos de contacto -->
+<section class="contact-section">
+  <div class="contact-container">
+    <!-- Contact Form -->
+    <div class="form-container">
+      <div class="txt-form">
+        <h1>Envíanos tu comentario o sugerencia</h1>
+      </div>
+      <form (ngSubmit)="enviarFormulario()" class="form-contacto">
+        <div class="form-group">
+          <input type="text" placeholder="Ingresa tu nombre" required />
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Ingresa tu correo" required />
+        </div>
+        <div class="form-group">
+          <textarea
+            placeholder="Ingresa tu comentario"
+            class="form-contacto"
+            rows="5"
+            required
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn-submit" (click)="enviarFormulario()">Enviar</button>
+        </div>
+      </form>
+    </div>
 
-<section>
-  <div class="mapa">
-    <img src="assets/webp/Mapa-CFM.webp" alt="" />
-    <!-- Mapa de localizacion -->
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1682.3238446849552!2d-116.9877284580654!3d32.50884434863976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d9490b00ab9d73%3A0x2266c47d979524c6!2sRadio%20ConexionFM!5e0!3m2!1ses-419!2smx!4v1714006019243!5m2!1ses-419!2smx"
-      width="100%"
-      height="450"
-      style="border: 0"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
-    <br />
-    <!-- Section formulario-->
-    <!-- <div class="txt-form">
-  <h1>Envíanos tu comentario o sugerencia</h1>
-</div>
-<div class="form">
-  <form action="enviarFormulario()" class="form-contacto">
-    <input type="text" placeholder="Ingresa tu nombre" required />
-    <input type="email" placeholder="Ingresa tu correo" required />
-    <textarea
-      placeholder="Ingresa tu comentario"
-      class="form-contacto"
-      required
-    ></textarea>
-  </form>
-</div>
-<div class="btn">
-  <input type="submit" value="Enviar" (click)="enviarFormulario()" />
-</div>
-<br /> -->
+    <!-- Map Section -->
+    <div class="map-container">
+      <div class="static-map">
+        <img src="assets/webp/Mapa-CFM.webp" alt="Mapa estático de ubicación" />
+      </div>
+      <div class="google-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1682.3238446849552!2d-116.9877284580654!3d32.50884434863976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d9490b00ab9d73%3A0x2266c47d979524c6!2sRadio%20ConexionFM!5e0!3m2!1ses-419!2smx!4v1714006019243!5m2!1ses-419!2smx"
+          width="100%"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
   </div>
-  <div class="banner-destacado" align="center">
+
+  <!-- Advertisement Banner -->
+  <div class="banner-destacado">
     <a routerLink="/contact">
-      <img src="assets/Banner-350 X 510.jpg" alt="publicidad" />
+      <img src="assets/Banner-350 X 510.jpg" alt="Publicidad" />
     </a>
   </div>
 </section>

@@ -5,6 +5,8 @@ import { ContactComponent } from './contact/contact.component';
 import { NewsComponent } from './news/news.component';
 import { SheduleComponent } from './shedule/shedule.component';
 import { DetailsComponent } from './details/details.component';
+import { BajaCaliforniaComponent } from './baja-california/baja-california.component';
+import { DeportesComponent } from './deportes/deportes.component';
 
 export const routes: Routes = [
   { path: '', title: 'ConexionFM | Inicio', component: HomeComponent },
@@ -17,4 +19,6 @@ export const routes: Routes = [
     title: 'ConexionFM',
     component: DetailsComponent,
   },
+  { path: 'baja-california', title: 'BajaCalifornia', component: BajaCaliforniaComponent },
+  { path: 'deportes', title: 'Deportes', component: DeportesComponent },
 ];
