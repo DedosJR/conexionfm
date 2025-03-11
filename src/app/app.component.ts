@@ -15,14 +15,14 @@ import {
   MatCardModule,
 } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 import { CommonModule, NgClass, ViewportScroller } from '@angular/common';
-
+import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-
+    RouterOutlet,
     RouterLink,
     MatToolbarModule,
     MatButtonModule,
@@ -30,10 +30,10 @@ import { CommonModule, NgClass, ViewportScroller } from '@angular/common';
     MatSidenavModule,
     MatCardModule,
     MatGridListModule,
-    HttpClientModule,
     NgClass,
     CommonModule,
     RouterModule,
+    HttpClientModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
