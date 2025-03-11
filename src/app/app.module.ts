@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
-  declarations: [SafeHtmlPipe],
+  declarations: [],
   imports: [
     CommonModule,
     //BrowserModule,
@@ -35,6 +35,6 @@ import { BrowserModule } from '@angular/platform-browser';
     // }),
   ],
   providers: [WordpressService],
-  bootstrap: [],
+  //bootstrap: [],
 })
 export class AppModule {}

@@ -1,11 +1,16 @@
 {
   "name": "ConexionFM",
   "short_name": "ConexionFM",
-  "theme_color": "#ffffff",
-  "background_color": "#fafafa",
+  "description": "Radio y Noticias de Baja California",
+  "theme_color": "#e69c11",
+  "background_color": "#ffffff",
   "display": "standalone",
+  "orientation": "portrait",
   "scope": "./",
   "start_url": "./",
+  "categories": ["news", "entertainment"],
+  "lang": "es-MX",
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
@@ -54,6 +59,18 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Últimas Noticias",
+      "url": "/news",
+      "icons": [{ "src": "assets/icons/icon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Deportes",
+      "url": "/deportes",
+      "icons": [{ "src": "assets/icons/icon-96x96.png", "sizes": "96x96" }]
     }
   ]
 }

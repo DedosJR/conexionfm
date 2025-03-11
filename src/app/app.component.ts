@@ -22,7 +22,7 @@ import { CommonModule, NgClass, ViewportScroller } from '@angular/common';
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet,
+
     RouterLink,
     MatToolbarModule,
     MatButtonModule,
@@ -47,14 +47,6 @@ export class AppComponent {
   showDeportesSubmenu = false;
   showNewsSubmenu = false;
 
-  // Método para deshabilitar caché
-  private getHeaders() {
-    return new HttpHeaders({
-      'Cache-Control': 'no-cache',
-      Pragma: 'no-cache',
-      Expires: '0',
-    });
-  }
   constructor(
     private router: Router,
     private viewportScroller: ViewportScroller

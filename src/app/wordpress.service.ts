@@ -1,25 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable, throwError}from 'rxjs';
 import { retry, catchError, timeout } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WordpressService {
-  // API REST de WordPress variables privadas//
   private apiUrl = 'https://panel.conexionfm.com/wp-json/wp/v2/posts';
-  private Deportes = 'https://panel.conexionfm.com/wp-json/wp/v2/categories';
-  private timeoutDuration = 10000; // 10 seconds timeout
+  private categoriesUrl = 'https://panel.conexionfm.com/wp-json/wp/v2/categories';
+  private timeoutDuration = 10000;
 
   constructor(private http: HttpClient) {}
 
-  getPostsnews(): Observable<any[]> {
-    let params = new HttpParams().set('per_page', '5').set('_embed', '');
 
-    return this.http.get<any[]>(this.apiUrl, { params }).pipe(
+  private getWithConfig(url: string, params: HttpParams): Observable<any> {
+    return this.http.get<any>(url, { params }).pipe(
       timeout(this.timeoutDuration),
-      retry(3), // Retry 3 times before failing
+      retry(3),
       catchError(this.handleError)
     );
   }
@@ -28,89 +26,92 @@ export class WordpressService {
     console.error('API Error:', error);
     return throwError(() => 'Error connecting to the server. Please try again later.');
   }
-  //Conexion  al portal de WP para carrousel//
-  getPosts(): Observable<any[]> {
-    let params = new HttpParams().set('per_page', '1').set('_embed', '');
-    return this.http.get<any[]>(this.apiUrl, { params });
-  }
-  //Artículo recomendado//
-  getPostsnewsArticle(): Observable<any[]> {
-    let params = new HttpParams().set('per_page', '3').set('_embed', '');
-    return this.http.get<any[]>(this.apiUrl, { params });
+
+  // Home Page Methods
+  getPostsnews(): Observable<any[]> {
+    const params = new HttpParams().set('per_page', '5').set('_embed', '');
+    return this.getWithConfig(this.apiUrl, params);
   }
 
-  //Últimos 4 post de la categoría de BC//
+  getPosts(): Observable<any[]> {
+    const params = new HttpParams().set('per_page', '1').set('_embed', '');
+    return this.getWithConfig(this.apiUrl, params);
+  }
+
+  getPostsnewsArticle(): Observable<any[]> {
+    const params = new HttpParams().set('per_page', '3').set('_embed', '');
+    return this.getWithConfig(this.apiUrl, params);
+  }
+
+  // Baja California Methods
   getPostsd(categoryId = 2): Observable<any[]> {
-    let params = new HttpParams()
+    const params = new HttpParams()
       .set('categories', categoryId.toString())
       .set('per_page', '4')
       .set('_embed', '');
-    return this.http.get<any[]>(this.apiUrl, { params });
+    return this.getWithConfig(this.apiUrl, params);
   }
-  //Últimos 40 post de la categoría de BC//
+
   getCatBC(categoryId = 2): Observable<any[]> {
-    let params = new HttpParams()
+    const params = new HttpParams()
       .set('categories', categoryId.toString())
       .set('per_page', '40')
       .set('_embed', '');
-    return this.http.get<any[]>(this.apiUrl, { params });
+    return this.getWithConfig(this.apiUrl, params);
   }
-  //traer nombre de categoria bc//
+
   getPostBc(categoryId: number): Observable<any> {
-    const url = `${this.Deportes}/${categoryId}`;
-    return this.http.get<any>(url);
+    return this.getWithConfig(`${this.categoriesUrl}/${categoryId}`, new HttpParams());
   }
-  //Baja California patra mostrar en carrousel//
+
   getPostBccarrousel(categoryId = 2): Observable<any[]> {
-    let params = new HttpParams()
+    const params = new HttpParams()
       .set('categories', categoryId.toString())
       .set('per_page', '1')
       .set('_embed', '');
-    return this.http.get<any[]>(this.apiUrl, { params });
+    return this.getWithConfig(this.apiUrl, params);
   }
-  //Destacado//
+
+  // Featured Posts
   getdestacado(categoryId = 3): Observable<any[]> {
-    let params = new HttpParams()
+    const params = new HttpParams()
       .set('categories', categoryId.toString())
       .set('per_page', '1')
       .set('_embed', '');
-    return this.http.get<any[]>(this.apiUrl, { params });
+    return this.getWithConfig(this.apiUrl, params);
   }
-  //Deportes para mostrar carrousel//
+
+  // Sports Methods
   getPostDeportespostSlide(categoryId = 4): Observable<any[]> {
-    let params = new HttpParams()
+    const params = new HttpParams()
       .set('categories', categoryId.toString())
       .set('per_page', '1')
       .set('_embed', '');
-    return this.http.get<any[]>(this.apiUrl, { params });
+    return this.getWithConfig(this.apiUrl, params);
   }
-  //Categoria de deportes para mosrtrar cards//
+
   getPostDeportespost(categoryId = 4): Observable<any[]> {
-    let params = new HttpParams()
+    const params = new HttpParams()
       .set('categories', categoryId.toString())
       .set('per_page', '4')
       .set('_embed', '');
-    return this.http.get<any[]>(this.apiUrl, { params });
+    return this.getWithConfig(this.apiUrl, params);
   }
+
   getCatDep(categoryId = 4): Observable<any[]> {
-    let params = new HttpParams()
+    const params = new HttpParams()
       .set('categories', categoryId.toString())
       .set('per_page', '40')
       .set('_embed', '');
-    return this.http.get<any[]>(this.apiUrl, { params });
+    return this.getWithConfig(this.apiUrl, params);
   }
-  //Deportes para mostrar nombre de categoria//
+
   getPostDeportes(categoryId: number): Observable<any> {
-    const url = `${this.Deportes}/${categoryId}`;
-    return this.http.get<any>(url);
+    return this.getWithConfig(`${this.categoriesUrl}/${categoryId}`, new HttpParams());
   }
-  // Nuevo método para obtener los detalles de una entrada específica.//
+
+  // Single Post Method
   getPostById(postId: number): Observable<any> {
-    const url = `${this.apiUrl}/${postId}`;
-    return this.http.get<any>(url);
+    return this.getWithConfig(`${this.apiUrl}/${postId}`, new HttpParams());
   }
 }
-/*Fichero para mostrar los servicios de la coneexion hacia el panel de control de wordpress de conexionFM,
-con este archivo de servicios conectamos a la base de datos de la plataforma para consumir la API de WP y mostrar
-los post de las categorias, así como los nombres de las mismas.
- */
