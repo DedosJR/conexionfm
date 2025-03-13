@@ -1,0 +1,22 @@
+
+<!-- Inicio de pagina web -->
+<main>
+  <router-outlet></router-outlet>
+</main>
+<!-- Back to Top Button -->
+<button
+  *ngIf="isScrolled"
+  (click)="scrollToTop()"
+  class="back-to-top"
+  aria-label="Back to top"
+>
+  <mat-icon>arrow_upward</mat-icon>
+</button>
+<!--Reproductor de Música-->
+<iframe
+  class="reproductor-fijo"
+  src="https://server1.maxiradiofm.com/public/conexionfm/embed?theme=dark&autoplay=true"
+  frameborder="0"
+  allow="autoplay"
+>
+</iframe>

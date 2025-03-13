@@ -1,0 +1,498 @@
+/* styles.css */
+@import "bootstrap/dist/css/bootstrap.min.css";
+/* You can add global styles to this file, and also import other style files */
+:root {
+  /* color-scheme: light dark; */
+  --color-white: #ffffff;
+  --color-gray-dark: #333;
+  --color-gray: #c6c6c6;
+  --color-dark: #212121;
+  --color-orange: #ff6633;
+  --color-black: #000000;
+}
+@media screen and (max-width: 768px) {
+  .banner-destacado {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    padding-top: 0;
+    margin-top: 10px;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  #menu {
+    display: none;
+  }
+  section {
+    padding: 0;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  header {
+    max-width: 100%;
+  }
+
+  .logo {
+    flex-direction: column;
+  }
+  .logo img {
+    margin: 0 auto;
+    max-width: 250px;
+    max-height: 70px;
+  }
+  mat-toolbar {
+    max-width: 100%;
+  }
+  #footer,
+  .redes,
+  .direccion,
+  .footer-div {
+    flex-direction: column;
+    display: block;
+    max-width: 100%;
+  }
+}
+/*estilos globales de pagina*/
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.logo {
+  margin: 0 auto;
+  margin-top: 10px;
+  justify-content: center;
+  display: flex;
+}
+.logo a img {
+  padding: 0 auto;
+  margin: 0 auto;
+  width: 450px;
+  height: 80px;
+}
+.logo-footer div {
+  margin: 0 auto;
+  display: block;
+}
+.logo-footer img {
+  padding: 0 auto;
+  margin: 30px auto;
+  width: 100px;
+  height: 100px;
+}
+header {
+  width: 100%;
+  height: 105px;
+  max-height: 250px;
+  background-color: var(--color-white);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  transition: top 1.3s;
+  animation-duration: 1s;
+}
+.hide-header {
+  top: -93px; /* La altura del encabezado */
+}
+.header {
+  top: -220px;
+}
+#header {
+  background-color: var(--color-black);
+  position: fixed;
+  margin-top: 93px;
+  z-index: 1000;
+  transition: top 2.3s;
+  animation-duration: 5s;
+  opacity: 95%;
+}
+
+#footer {
+  position: relative;
+  color: var(--color-white);
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  background-color: var(--color-dark);
+  margin-top: auto;
+  padding-bottom: 150px; /* Space for the music player */
+}
+
+/* Add these new styles */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+router-outlet {
+  flex: 1;
+}
+
+section {
+  min-height: calc(100vh - 475px); /* Adjust based on header + footer + player height */
+}
+.container-1 {
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  left: 15px;
+  right: 0;
+  background-color: var(--color-orange);
+}
+
+.close {
+  margin-left: 140px;
+  top: 300px;
+  animation-duration: 2s;
+}
+.close:hover {
+  color: var(--color-orange);
+  background-color: var(--color-dark);
+  animation-delay: 10s;
+}
+.footer-div {
+  /* border-right: 1px solid var(--color-gray); */
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1390px;
+  display: flex;
+}
+.icon-f {
+  flex: 20%;
+}
+.redes {
+  flex: 40%;
+  margin: 10px auto;
+  padding: 10px;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-white);
+  font-size: 20pt;
+}
+svg {
+  margin-left: 20px;
+}
+.icons svg:hover {
+  cursor: pointer;
+  /* background-color: var(--color-orange); */
+  /* transition: 1.5s; */
+  fill: var(--color-orange);
+  animation-fill-mode: 3s;
+}
+.direccion {
+  flex: 30%;
+  margin: 10px auto;
+  padding: 10px;
+  font-size: 12pt;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+.direccion ul {
+  list-style: none;
+  padding: 0px;
+}
+.direccion li {
+  margin-top: 5px;
+}
+/* Nave menu */
+.nav-menu {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+}
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+.nav-menu li {
+  padding-top: 12px;
+  list-style: none;
+  margin-right: 10px; /* Agrega espacio entre enlaces */
+}
+.nav-menu li:last-child {
+  margin-right: 0; /* Elimina el margen del último elemento */
+}
+.nav-menu a {
+  color: var(--color-white);
+  padding: 10px;
+  font-size: 16px;
+  text-decoration: none;
+}
+.nav-menu a:hover {
+  color: var(--color-orange);
+  box-shadow: 2px 2px 8px #e69c11;
+  border-radius: 15px;
+  transition: 0.2s;
+  animation-delay: 0.5s;
+}
+.nav-menu ul li a.active {
+  color: var(--color-orange); /* Cambia el color del enlace activo */
+  font-weight: bold; /* O cualquier otro estilo que prefieras */
+}
+/* Nav side */
+/* Update sidenav styles */
+#sidenav {
+  display: none; /* Hide by default */
+}
+
+/* Show sidenav only on mobile */
+@media screen and (max-width: 768px) {
+  #sidenav {
+    display: flex;
+    width: 300px;
+    height: auto;
+    position: fixed;
+    z-index: 1000;
+    opacity: 95%;
+    background-color: var(--color-dark);
+  }
+
+  /* Hide main menu on mobile */
+  .nav-menu {
+    display: none;
+  }
+}
+
+/* Hide menu button on desktop */
+@media screen and (min-width: 769px) {
+  mat-toolbar button[mat-icon-button] {
+    display: none;
+  }
+}
+.nav {
+  font-size: 18pt;
+  padding-bottom: 30px;
+  display: block;
+  flex-direction: row;
+  margin: 0 auto;
+  justify-content: center;
+  background-color: var(--color-dark);
+}
+.nav ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+.nav li {
+  padding-top: 20px;
+  list-style: none;
+  margin-right: 10px;
+  margin-left: 15px; /* Agrega espacio entre enlaces */
+}
+.nav li:last-child {
+  margin-right: 0; /* Elimina el margen del último elemento */
+}
+.nav a {
+  color: var(--color-white);
+  padding: 10px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px var(--color-orange);
+  color: var(--color-orange);
+  transition: 0.5s;
+
+  /* box-shadow: 0px 0px 10px #333;
+  border-radius: 80%; */
+}
+
+.logo-side {
+  padding-top: 10px;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 100px;
+  max-height: 80px;
+}
+section {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1390px;
+  margin: 10px auto;
+  padding: 0;
+  padding-top: 175px;
+}
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1390px;
+  margin: 30px auto;
+  padding: 0;
+}
+figure {
+  width: 100%;
+  margin: 0 auto;
+}
+img {
+  cursor: pointer;
+  width: 100%;
+  height: auto;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #fff; /* Color de fondo del submenú */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra del submenú */
+  z-index: 1; /* Asegura que el submenú esté encima del contenido */
+}
+
+#menu li:hover .submenu {
+  display: block; /* Muestra el submenú cuando se pasa el mouse por encima */
+}
+
+.submenu li {
+  float: none; /* Alinea los elementos del submenú verticalmente */
+}
+
+.submenu a {
+  display: block;
+  padding: 10px;
+  color: #333; /* Color de texto del submenú */
+  text-decoration: none;
+}
+
+.submenu a:hover {
+  background-color: #f2f2f2; /* Color de fondo del elemento del submenú al pasar el mouse */
+}
+.banner-destacado {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 369px;
+  height: auto;
+  padding: 10px;
+  padding-top: 0;
+}
+/* boton de radio player */
+
+.player {
+  padding: 10px; /* Espacio interior */
+}
+
+.player ul {
+  display: block;
+  align-items: center; /* Centrar verticalmente los íconos */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.player li {
+  margin: 0 auto; /* Espacio entre íconos */
+}
+
+.icons-header {
+  padding: 0;
+  text-align: center;
+  padding-left: 15px;
+  font-size: 12pt;
+  font-weight: 500;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between; /* Distribuir elementos uniformemente */
+  align-items: center;
+  width: 100%;
+}
+/* Parte del player */
+.offcanvas {
+  height: 230px;
+  margin: 0;
+}
+.offcanvas-dark {
+  background-color: var(--color-dark); /* Bootstrap dark theme background */
+  color: var(--color-white);
+}
+
+.offcanvas-dark .btn-close {
+  filter: invert(1); /* Invert button color to be visible on dark backgrounds */
+}
+#audio-player {
+  width: 100%;
+  background-color: #00000088;
+  padding: 20px;
+  margin: auto;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+#cover-art {
+  width: 200px;
+  height: 200px;
+  max-width: 100px;
+  max-height: 100px;
+  background-image: url("https://server1.maxiradiofm.com/static/uploads/conexionfm/album_art.1707171680.jpg");
+  background-size: cover;
+  background-position: center;
+  margin-right: 20px; /* Ajuste de margen para separar la imagen de los controles */
+}
+
+#audio-controls {
+  display: flex;
+  align-items: center;
+  flex-grow: 1; /* Permite que los controles se expandan para llenar el espacio restante */
+}
+
+#play-button {
+  background-color: #db9834;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px; /* Ajuste de margen para separar los controles */
+}
+
+#volume-wrapper {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+#volume-control {
+  flex-grow: 1;
+  margin-top: 10px; /* Espacio adicional entre el control de volumen y el botón de reproducción */
+}
+
+#volume-icon {
+  color: #ffffff;
+  background-color: #db9834;
+  border: none;
+  padding: 10px;
+  border-radius: 50%; /* Hace que el botón de volumen sea redondeado */
+  cursor: pointer;
+  margin-left: 10px; /* Espacio entre el control de volumen y el botón de volumen */
+}
+/*Reproductor de musica*/
+.reproductor-fijo {
+  position: fixed;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 155px;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  z-index: 1000;
+  padding: 15px;
+  box-sizing: border-box;
+  opacity: 90%;
+}

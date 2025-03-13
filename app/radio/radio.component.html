@@ -1,0 +1,9 @@
+<div id="player">
+  <h1>{{ stationName }}</h1>
+  <h2>{{ nowPlaying }}</h2>
+  <img [src]="albumCover" alt="Carátula del álbum" id="album-cover" />
+  <audio controls>
+    <source [src]="streamUrl" type="audio/mpeg" />
+    Tu navegador no soporta la reproducción de audio.
+  </audio>
+</div>
