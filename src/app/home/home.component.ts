@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
-import { Router, NavigationEnd, RouterLink } from '@angular/router';
-import { CommonModule, ViewportScroller } from '@angular/common';
+import { Router, NavigationEnd, RouterLink, RouterModule } from '@angular/router';
+import { CommonModule, ViewportScroller  } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -18,6 +18,7 @@ import { startWith, switchMap, takeUntil } from 'rxjs/operators';
   standalone: true,
   imports: [
     RouterLink,
+    RouterModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
@@ -43,6 +44,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   deportespost: any = [];
   destacadoPost: any = [];
   programas: any[] = [];
+  showBCSubmenu = false;
+  showDeportesSubmenu = false;
+  showNewsSubmenu = false;
+
   private subscriptions: Subscription = new Subscription();
 
   constructor( private wordpressService: WordpressService,
@@ -170,5 +175,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
   trackByIndex(index: number, item: string): number {
     return index;
+  }
+
+  showMobileNewsSubmenu = false;
+  toggleNewsSubmenu() {
+    this.showMobileNewsSubmenu = !this.showMobileNewsSubmenu;
   }
 }

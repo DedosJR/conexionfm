@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import {  RouterLink } from '@angular/router';
+import {  RouterLink, RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -9,10 +9,12 @@ import {
   MatCardModule,
 } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
+import { NgClass } from '@angular/common';
 @Component({
   selector: 'app-contact',
   standalone: true,
   imports: [
+    RouterModule,
     RouterLink,
     MatToolbarModule,
     MatButtonModule,
@@ -20,14 +22,21 @@ import { FormsModule } from '@angular/forms';
     MatSidenavModule,
     MatCardModule,
     FormsModule,
+    NgClass,
   ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css',
 })
 export class ContactComponent {
   sidenavOpen = false;
+  showBCSubmenu = false;
+  showDeportesSubmenu = false;
+  showNewsSubmenu = false;
   msg = 'Mensaje enviado';
   isScrolled = false;
+
+
+
   openSidenav() {
     this.sidenavOpen = true;
   }
@@ -48,5 +57,9 @@ export class ContactComponent {
   }
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  showMobileNewsSubmenu = false;
+  toggleNewsSubmenu() {
+    this.showMobileNewsSubmenu = !this.showMobileNewsSubmenu;
   }
 }

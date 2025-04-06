@@ -11,7 +11,7 @@ describe('BajaCaliforniaComponent', () => {
       imports: [BajaCaliforniaComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(BajaCaliforniaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

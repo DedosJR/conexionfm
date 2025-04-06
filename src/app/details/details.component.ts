@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { RouterLink, ActivatedRoute, Params } from '@angular/router';
+import { RouterLink, ActivatedRoute, Params, RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,6 +15,7 @@ import { Meta, Title } from '@angular/platform-browser';
   selector: 'app-details',
   standalone: true,
   imports: [
+    RouterModule,
     RouterLink,
     MatToolbarModule,
     MatButtonModule,
@@ -34,6 +35,9 @@ export class DetailsComponent implements OnInit {
   isScrolled = false;
   article: any = [];
   sidenavOpen = false;
+  showBCSubmenu = false;
+  showDeportesSubmenu = false;
+  showNewsSubmenu = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -114,5 +118,10 @@ export class DetailsComponent implements OnInit {
       { property: 'og:url', content: window.location.href },
       { property: 'og:type', content: 'article' },
     ]);
+  }
+  showMobileNewsSubmenu = false;
+
+  toggleNewsSubmenu() {
+    this.showMobileNewsSubmenu = !this.showMobileNewsSubmenu;
   }
 }

@@ -1,14 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { WordpressService } from '../wordpress.service';
-import { RouterLink } from '@angular/router';
-import { NgIf } from '@angular/common';
+import { RouterLink, RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCardModule } from '@angular/material/card';
 import { catchError, retry, timeout } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-deportes',
   standalone: true,
-  imports: [RouterLink, NgIf],
+  imports: [
+    RouterLink,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatCardModule,
+    CommonModule,
+    RouterModule,
+  ],
   templateUrl: './deportes.component.html',
   styleUrls: ['./deportes.component.css'],
   providers: [WordpressService],
@@ -17,6 +31,12 @@ export class DeportesComponent implements OnInit {
   posts: any[] = [];
   loading = true;
   error: string | null = null;
+  showBCSubmenu = false;
+  showDeportesSubmenu = false;
+  showNewsSubmenu = false;
+  isScrolled = false;
+  sidenavOpen = false;
+
 
   constructor(
     private wordpressService: WordpressService,
@@ -41,6 +61,31 @@ export class DeportesComponent implements OnInit {
         this.error = 'Error loading posts. Please try again later.';
       }
     });
+  }
+ //Realizar apertura del sidenav
+  openSidenav() {
+    this.sidenavOpen = true;
+  }
+  //Realizar el cerrado del sidenav
+  closeSidenav() {
+    this.sidenavOpen = false;
+  }
+  //Scroll para el nav se deslice hacia arriba
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollY = window.scrollY;
+    this.isScrolled = scrollY > 200; // 200 es la posición de desplazamiento a partir de la cual se oculta el encabezado
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  // Subscribe to route events to scroll to top on navigation end
+  // Add to your component class
+  showMobileNewsSubmenu = false;
+
+  toggleNewsSubmenu() {
+    this.showMobileNewsSubmenu = !this.showMobileNewsSubmenu;
   }
 }
 

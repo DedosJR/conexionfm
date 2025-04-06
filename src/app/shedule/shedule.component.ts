@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { RouterOutlet, RouterLink, RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -15,6 +15,7 @@ import { NgClass } from '@angular/common';
   selector: 'app-shedule',
   standalone: true,
   imports: [
+    RouterModule,
     HomeComponent,
     RouterOutlet,
     RouterLink,
@@ -33,7 +34,9 @@ import { NgClass } from '@angular/common';
 export class SheduleComponent {
   sidenavOpen = false;
   isScrolled = false;
-
+  showBCSubmenu = false;
+  showDeportesSubmenu = false;
+  showNewsSubmenu = false;
   openSidenav() {
     this.sidenavOpen = true;
   }
@@ -49,5 +52,10 @@ export class SheduleComponent {
   }
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  showMobileNewsSubmenu = false;
+
+  toggleNewsSubmenu() {
+    this.showMobileNewsSubmenu = !this.showMobileNewsSubmenu;
   }
 }

@@ -13,10 +13,13 @@ import { SafeHtmlPipe } from '../app/SafeHtmlPipe';
 import { WordpressService } from './wordpress.service';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { XoModule } from 'angular-xo';
 
 @NgModule({
   declarations: [],
   imports: [
+    XoModule,
+    NgModule,
     CommonModule,
     //BrowserModule,
     BrowserAnimationsModule,
@@ -27,6 +30,7 @@ import { BrowserModule } from '@angular/platform-browser';
     MatIconModule,
     FontAwesomeModule,
     AppComponent,
+
     //ServiceWorkerModule.register('ngsw-worker.js', {
     // enabled: !isDevMode(),
     // Register the ServiceWorker as soon as the application is stable
@@ -35,6 +39,6 @@ import { BrowserModule } from '@angular/platform-browser';
     // }),
   ],
   providers: [WordpressService],
-  //bootstrap: [],
+  bootstrap: [],
 })
 export class AppModule {}

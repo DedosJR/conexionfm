@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-news',
   standalone: true,
   imports: [
+    RouterModule,
     RouterLink,
     MatToolbarModule,
     MatButtonModule,
@@ -31,7 +32,9 @@ export class NewsComponent implements OnInit {
   deportes: any = [];
   deportespost: any = [];
   loading: boolean = true;
-
+  showBCSubmenu = false;
+  showDeportesSubmenu = false;
+  showNewsSubmenu = false;
   constructor(private wordpressService: WordpressService) {}
 
   ngOnInit(): void {
@@ -62,5 +65,10 @@ export class NewsComponent implements OnInit {
   }
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  showMobileNewsSubmenu = false;
+
+  toggleNewsSubmenu() {
+    this.showMobileNewsSubmenu = !this.showMobileNewsSubmenu;
   }
 }
